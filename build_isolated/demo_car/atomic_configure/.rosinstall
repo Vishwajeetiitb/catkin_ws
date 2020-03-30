@@ -1,0 +1,2 @@
+- setup-file:
+    local-name: /home/vishwajeet/catkin_ws/devel_isolated/demo_car/setup.sh

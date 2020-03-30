@@ -1,0 +1,8 @@
+prefix=/home/vishwajeet/catkin_ws/devel_isolated/turtlesim_cleaner
+
+Name: turtlesim_cleaner
+Description: Description of turtlesim_cleaner
+Version: 0.0.0
+Cflags: 
+Libs: -L${prefix}/lib 
+Requires: 

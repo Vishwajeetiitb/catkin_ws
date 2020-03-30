@@ -1,0 +1,8 @@
+prefix=/home/vishwajeet/catkin_ws/devel_isolated/demo_car
+
+Name: demo_car
+Description: Description of demo_car
+Version: 1.0.0
+Cflags: 
+Libs: -L${prefix}/lib 
+Requires: 

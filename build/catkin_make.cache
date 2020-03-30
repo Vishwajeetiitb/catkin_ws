@@ -1,0 +1,2 @@
+beginner_tutorials:dikshant_package:gazebo_ros_demos/gazebo_tutorials:gazebo_ros_demos/rrbot_control:gazebo_ros_demos/rrbot_description:gazebo_ros_demos/rrbot_gazebo:lf:m2wr_description:my_package:mybot_gazebo_tutorial/mybot_control:mybot_gazebo_tutorial/mybot_description:mybot_gazebo_tutorial/mybot_gazebo:turtlesim_cleaner
+-DCATKIN_DEVEL_PREFIX=/home/vishwajeet/catkin_ws/devel -DCMAKE_INSTALL_PREFIX=/home/vishwajeet/catkin_ws/install -G Unix Makefiles

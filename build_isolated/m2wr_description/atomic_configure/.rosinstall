@@ -1,0 +1,2 @@
+- setup-file:
+    local-name: /home/vishwajeet/catkin_ws/devel_isolated/m2wr_description/setup.sh

@@ -1,0 +1,4 @@
+<launch>
+<node pkg="lf" name="line_detect_control" type="lf.py" output="screen">
+</node>
+</launch>

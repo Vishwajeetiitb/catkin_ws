@@ -1,0 +1,2 @@
+beginner_tutorials:control:dikshant_package:gazebo_ros_demos/gazebo_tutorials:gazebo_ros_demos/rrbot_control:gazebo_ros_demos/rrbot_description:gazebo_ros_demos/rrbot_gazebo:lf:my_package:turtlesim_cleaner:two-wheeled-robot-simulation/m2wr_description:two-wheeled-robot-simulation/my_worlds
+-G Unix Makefiles -DCATKIN_DEVEL_PREFIX=/home/vishwajeet/catkin_ws/devel_isolated -DCMAKE_INSTALL_PREFIX=/home/vishwajeet/catkin_ws/install_isolated

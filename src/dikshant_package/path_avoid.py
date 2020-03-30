@@ -1,0 +1,20 @@
+#! /usr/bin/env python
+import rospy
+from sensor_msgs.msg import LaserScan
+from geometry_msgs.msg import Twist
+ 
+rospy.init_node('avoid_collison')
+var = Twist()
+def callback(data):
+	d = data.ranges[320]
+	#print(d)
+	if d < 1:
+		var.linear.x = 0
+		var.angular.z =0.5
+	if d>1:
+		var.linear.x = 0.5
+		var.angular.z = 0
+	pub.publish(var)
+pub = rospy.Publisher('/cmd_vel_mux/input/teleop',Twist)
+sub = rospy.Subscriber('/scan',LaserScan,callback)
+rospy.spin()

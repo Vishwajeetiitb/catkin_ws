@@ -1,0 +1,8 @@
+<launch>
+ <!-- run simple.py from my_package -->
+ <node pkg="dikshant_package" type="pub.py" name="pub_node"  output="screen">
+ </node>
+</launch>
+
+
+

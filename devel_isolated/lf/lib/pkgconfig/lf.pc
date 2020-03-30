@@ -1,0 +1,8 @@
+prefix=/home/vishwajeet/catkin_ws/devel_isolated/lf
+
+Name: lf
+Description: Description of lf
+Version: 0.0.0
+Cflags: 
+Libs: -L${prefix}/lib 
+Requires: 

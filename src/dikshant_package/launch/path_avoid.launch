@@ -1,0 +1,4 @@
+<launch>
+<node pkg="dikshant_package" name="avoid_collision" type="path_avoid.py" output ="screen" > 
+</node>
+</launch>
