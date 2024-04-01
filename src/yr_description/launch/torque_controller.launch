@@ -1,0 +1,17 @@
+<?xml version="1.0" ?>
+<launch>
+	<!-- Load joint controller configurations from YAML file to parameter server -->
+	<rosparam file="$(find yr_description)/config/torque_control.yaml" command="load"/>
+	<!-- load the controllers -->
+	<node name="torque_controller_spawner" pkg="controller_manager" type="spawner" respawn="false" output="screen" ns="/exo" 
+    args="yr_l_pel_joint_torque_controller 
+    yr_l_hip_joint_torque_controller 
+    yr_l_kne_joint_torque_controller 
+    yr_l_ank_joint_torque_controller 
+    yr_r_pel_joint_torque_controller 
+    yr_r_hip_joint_torque_controller 
+    yr_r_kne_joint_torque_controller 
+    yr_r_ank_joint_torque_controller" />
+	<!-- convert joint states to TF transforms for rviz, etc -->
+	<!-- <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher" respawn="false" output="screen"><remap from="/joint_states" to="/uthai/joint_states" /></node> -->
+</launch>

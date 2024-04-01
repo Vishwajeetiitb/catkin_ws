@@ -1,0 +1,25 @@
+exo:
+  yr_l_pel_joint_torque_controller:
+    type: effort_controllers/JointEffortController
+    joint: yr_l_pel_joint
+  yr_l_hip_joint_torque_controller:
+    type: effort_controllers/JointEffortController
+    joint: yr_l_hip_joint
+  yr_l_kne_joint_torque_controller:
+    type: effort_controllers/JointEffortController
+    joint: yr_l_kne_joint
+  yr_l_ank_joint_torque_controller:
+    type: effort_controllers/JointEffortController
+    joint: yr_l_ank_joint
+  yr_r_pel_joint_torque_controller:
+    type: effort_controllers/JointEffortController
+    joint: yr_r_pel_joint
+  yr_r_hip_joint_torque_controller:
+    type: effort_controllers/JointEffortController
+    joint: yr_r_hip_joint
+  yr_r_kne_joint_torque_controller:
+    type: effort_controllers/JointEffortController
+    joint: yr_r_kne_joint
+  yr_r_ank_joint_torque_controller:
+    type: effort_controllers/JointEffortController
+    joint: yr_r_ank_joint

@@ -1,0 +1,110 @@
+exo:
+  
+  joint_state_controller:
+    type: joint_state_controller/JointStateController
+    publish_rate: 100
+    
+  yr_l_pel_joint_trajectory_controller:
+    type: effort_controllers/JointTrajectoryController
+    joints:
+      - yr_l_pel_joint
+    gains:
+      yr_l_pel_joint: {p: 200, i: 1.0, d: 10}
+      
+  yr_l_hip_joint_trajectory_controller:
+    type: effort_controllers/JointTrajectoryController
+    joints:
+      - yr_l_hip_joint
+    gains:
+      yr_l_hip_joint: {p: 200, i: 1.0, d: 10}
+      
+  yr_l_kne_joint_trajectory_controller:
+    type: effort_controllers/JointTrajectoryController
+    joints:
+      - yr_l_kne_joint
+    gains:
+      yr_l_kne_joint: {p: 200, i: 1.0, d: 10}
+      
+  yr_l_ank_joint_trajectory_controller:
+    type: effort_controllers/JointTrajectoryController
+    joints:
+      - yr_l_ank_joint
+    gains:
+      yr_l_ank_joint: {p: 200, i: 1.0, d: 5}
+      
+  yr_r_pel_joint_trajectory_controller:
+    type: effort_controllers/JointTrajectoryController
+    joints:
+      - yr_r_pel_joint
+    gains:
+      yr_r_pel_joint: {p: 200, i: 1.0, d: 10}
+      
+  yr_r_hip_joint_trajectory_controller:
+    type: effort_controllers/JointTrajectoryController
+    joints:
+      - yr_r_hip_joint
+    gains:
+      yr_r_hip_joint: {p: 200, i: 1.0, d: 10}
+      
+  yr_r_kne_joint_trajectory_controller:
+    type: effort_controllers/JointTrajectoryController
+    joints:
+      - yr_r_kne_joint
+    gains:
+      yr_r_kne_joint: {p: 200, i: 1.0, d: 10}
+      
+  yr_r_ank_joint_trajectory_controller:
+    type: effort_controllers/JointTrajectoryController
+    joints:
+      - yr_r_ank_joint
+    gains:
+      yr_r_ank_joint: {p: 200, i: 1.0, d: 5}
+
+
+# exo:
+#    # Publish all joint states -----------------------------------
+
+  
+#   # Position Controllers ---------------------------------------
+  
+#   # Left Leg -----
+#   yr_l_pel_joint_angle:
+#     type: effort_controllers/JointPositionController
+#     joint: yr_l_pel_joint
+#     pid: {p: 200.0, i: 2.0, d: 10.0}
+#     desired: -1.575
+    
+#   yr_l_hip_joint_angle:
+#     type: effort_controllers/JointPositionController
+#     joint: yr_l_hip_joint
+#     pid: {p: 200.0, i: 2.0, d: 10.0}
+
+#   yr_l_kne_joint_angle:
+#     type: effort_controllers/JointPositionController
+#     joint: yr_l_kne_joint
+#     pid: {p: 200.0, i: 2.0, d: 10.0}
+
+#   yr_l_ank_joint_angle:
+#     type: effort_controllers/JointPositionController
+#     joint: yr_l_ank_joint
+#     pid: {p: 200.0, i: 2.0, d: 1.0}
+
+#   yr_r_pel_joint_angle:
+#     type: effort_controllers/JointPositionController
+#     joint: yr_r_pel_joint
+#     pid: {p: 200.0, i: 2.0, d: 10.0}
+
+#   yr_r_hip_joint_angle:
+#     type: effort_controllers/JointPositionController
+#     joint: yr_r_hip_joint
+#     pid: {p: 200.0, i: 2.0, d: 10.0}
+
+#   yr_r_kne_joint_angle:
+#     type: effort_controllers/JointPositionController
+#     joint: yr_r_kne_joint
+#     pid: {p: 200.0, i: 2.0, d: 10.0}
+
+#   yr_r_ank_joint_angle:
+#     type: effort_controllers/JointPositionController
+#     joint: yr_r_ank_joint
+#     pid: {p: 200.0, i: 2.0, d: 0.0}

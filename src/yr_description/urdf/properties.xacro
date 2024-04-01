@@ -1,0 +1,103 @@
+<?xml version="1.0"?>
+<robot name="lower_limb_exoskeleton" xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+    <xacro:property name="PI" value="3.1415926535897931" />
+    <xacro:property name="alpha" value="1.0" />
+
+
+    <material name="silver">
+        <color rgba="0.8 0.8 0.8 ${alpha}" />
+    </material>
+
+    <material name="blue">
+        <color rgba="0.8 1 0.8 ${alpha}" />
+    </material>
+
+    <material name="green">
+        <color rgba="0.8 0.8 1 ${alpha}" />
+    </material>
+
+    <xacro:property name="abduction_motor_distance" value="0.35" />
+     
+    <xacro:property name="waist_m" value="2.0" />
+    <xacro:property name="waist_l" value="0.05" />
+    <xacro:property name="waist_h" value="0.05" />
+    <xacro:property name="waist_mat" value="silver" />
+    <xacro:property name="waist_mesh_w" value="0.45" />
+    <xacro:property name="waist_w" value="${waist_mesh_w}" />
+    <xacro:property name="waist_h_offset" value="0.062" />
+    <xacro:property name="pel_joints_dist" value="0.4" />
+    <xacro:property name="waist_mesh"
+        value="package://yr_description/urdf/meshes_yr/waist_center.STL" />
+
+    <xacro:property name="pel_m" value="1.0" />
+    <xacro:property name="pel_l" value="0.1" />
+    <xacro:property name="pel_w" value="0.05" />
+    <xacro:property name="pel_h" value="0.1" />
+    <xacro:property name="pel_mat" value="silver" />
+    <xacro:property name="pel_x_offset" value="-0.09" />
+    <xacro:property name="pel_y_offset" value="-0.028" />
+    <xacro:property name="pel_h_offset" value="0.088" />
+    <xacro:property name="pel_mesh"
+        value="package://yr_description/urdf/meshes_yr/waist_corner_bracket.STL" />
+
+    <xacro:property name="thigh_m" value="1.5" />
+    <xacro:property name="thigh_l" value="0.468" />
+    <xacro:property name="thigh_w" value="0.1" />
+    <xacro:property name="thigh_h" value="0.1" />
+    <xacro:property name="thigh_mat" value="blue" />
+
+    <xacro:property name="shank_m" value="1.5" />
+    <xacro:property name="shank_l" value="0.468" />
+    <xacro:property name="shank_w" value="0.1" />
+    <xacro:property name="shank_h" value="0.1" />
+    <xacro:property name="shank_mat" value="green" />
+
+    <xacro:property name="foot_m" value="1.0" />
+    <xacro:property name="foot_l" value="0.15" />
+    <xacro:property name="foot_w" value="0.08" />
+    <xacro:property name="foot_h" value="0.1" />
+    <xacro:property name="foot_mat" value="silver" />
+
+    <xacro:property name="stand_base_width" value="0.5" />
+    <xacro:property name="stand_base_depth" value="0.5" />
+    <xacro:property name="stand_base_height" value="0.05" />
+    <xacro:property name="pole_height" value="1.2" />
+    <xacro:property name="pole_radius" value="0.02" />
+
+    <xacro:property name="thigh_mesh" value="package://yr_description/urdf/meshes_yr/exo_thigh.STL" />
+    <xacro:property name="shank_mesh" value="package://yr_description/urdf/meshes_yr/exo_shank.STL" />
+    <xacro:property name="foot_mesh" value="package://yr_description/urdf/meshes_yr/exo_foot.STL" />
+
+
+
+
+    <!-- Human Boday Paramters -->
+
+    <xacro:property name="human_thigh_r" value="0.075" />
+    <xacro:property name="human_shank_r" value="0.056" />
+    <xacro:property name="human_waist_l" value="0.25" />
+    <xacro:property name="human_waist_w" value="0.35" />
+    <xacro:property name="human_waist_h" value="0.4" />
+
+    <xacro:property name="human_weight" value="75" />
+    <xacro:property name="human_waist_weight" value="${human_weight*0.842}" />
+    <xacro:property name="human_thigh_weight" value="${human_weight*0.1}" />
+    <xacro:property name="human_shank_weight" value="${human_weight*0.05}" />
+    <xacro:property name="human_foot_weight" value="${human_weight*0.015}" />
+
+
+
+    <xacro:property name="yr_l_pel_joint_val" value="${-PI/2}" />
+    <xacro:property name="yr_l_hip_joint_val" value="${-PI/4}" />
+    <xacro:property name="yr_l_kne_joint_val" value="${PI/2}" />
+    <xacro:property name="yr_l_ank_joint_val" value="${-PI/4}" />
+
+    <xacro:property name="yr_r_pel_joint_val" value="${PI/2}" />
+    <xacro:property name="yr_r_hip_joint_val" value="${-PI/4}" />
+    <xacro:property name="yr_r_kne_joint_val" value="${PI/2}" />
+    <xacro:property name="yr_r_ank_joint_val" value="${-PI/4}" />
+
+
+ 
+</robot>

@@ -1,0 +1,275 @@
+<?xml version="1.0"?>
+<robot name="lower_limb_exoskeleton" xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+    <!-- ======================================================= -->
+    <!-- LINK                                                    -->
+    <!-- ======================================================= -->
+    <!-- <link name="${side}${side != '' and '_' or ''}${name}"> -->
+    <xacro:macro name="create_link" params="name m l w h mat">
+        <link name="${name}">
+            <collision>
+                <origin xyz="0 0 ${-l/2}" rpy="0 0 0" />
+                <geometry>
+                    <box size="${l} ${w} ${h}" />
+                </geometry>
+            </collision>
+            <visual>
+                <origin xyz="0 0 ${-l/2}" rpy="0 0 0" />
+                <geometry>
+                    <box size="${h} ${w} ${l}" />
+                </geometry>
+                <material name="${mat}" />
+            </visual>
+            <inertial>
+                <origin xyz="0 0 ${-h/2}" rpy="0 0 0" />
+                <mass value="${m}" />
+                <inertia
+                    ixx="${m / 12.0 * (w*w + l*l)}"
+                    ixy="0.0" ixz="0.0"
+                    iyy="${m / 12.0 * (h*h + l*l)}"
+                    iyz="0.0"
+                    izz="${m / 12.0 * (h*h + w*w)}" />
+            </inertial>
+        </link>
+    </xacro:macro>
+
+    <xacro:property name="mesh_scale" value="0.001" />
+    <!-- <xacro:property name="mesh_scale" value="1.0" /> -->
+    <xacro:arg name="use_mesh" default="false" />
+
+    <!-- ======================================================= -->
+    <!-- LINK2                                                   -->
+    <!-- ======================================================= -->
+    <xacro:macro name="create_link2"
+        params="name m l w h o_x o_y o_z o_r o_p o_yaw mat mesh_filename mirror">
+        <link name="${name}">
+            <collision>
+                <!-- <origin xyz="0 0 ${-l/2}" rpy="0 0 0" />
+                <geometry>
+                    <box size="${h} ${w} ${l}" />
+                </geometry> -->
+
+
+                <xacro:if value="${mesh_filename != ''}">
+                    <!-- <origin xyz="0 0 0" rpy="0 0 ${-PI}" /> -->
+                    <!-- <origin xyz="${-h} ${-w/2} ${-l}" rpy="${PI/2} 0 ${PI/2 + float(o_yaw)}" /> -->
+                    <origin xyz="${o_x} ${o_y} ${o_z}" rpy="${PI/2} 0 ${PI/2 + o_yaw}" />
+                </xacro:if>
+                <xacro:unless value="${mesh_filename != ''}">
+                    <origin xyz="0 0 ${-l/2}" rpy="0 0 ${-PI}" />
+                </xacro:unless>
+                <geometry>
+                    <xacro:if value="${mesh_filename != ''}">
+                        <mesh filename="${mesh_filename}"
+                            scale="${mirror*mesh_scale} ${mesh_scale} ${mesh_scale}" />
+                    </xacro:if>
+                    <xacro:unless value="${mesh_filename != ''}">
+                        <box size="${h} ${w} ${l}" />
+                    </xacro:unless>
+                </geometry>
+                <origin xyz="0 0 ${-l/2}" rpy="0 0 0" />
+                <material name="${mat}" />
+            </collision>
+            <visual>
+                <!-- <xacro:if value="${use_mesh}">
+                    <mesh_filename="" />
+                </xacro:if> -->
+                <!-- <xacro:property name="o_rpy_parts" value="split(o_rpy)" />
+                <xacro:property name="o_yaw" value="${(o_rpy_parts[2])}" /> -->
+
+                <xacro:if value="${mesh_filename != ''}">
+                    <!-- <origin xyz="0 0 0" rpy="0 0 ${-PI}" /> -->
+                    <!-- <origin xyz="${-h} ${-w/2} ${-l}" rpy="${PI/2} 0 ${PI/2 + float(o_yaw)}" /> -->
+                    <origin xyz="${o_x} ${o_y} ${o_z}" rpy="${PI/2} 0 ${PI/2 + o_yaw}" />
+                </xacro:if>
+                <xacro:unless value="${mesh_filename != ''}">
+                    <origin xyz="0 0 ${-l/2}" rpy="0 0 ${-PI}" />
+                </xacro:unless>
+                <geometry>
+                    <xacro:if value="${mesh_filename != ''}">
+                        <mesh filename="${mesh_filename}"
+                            scale="${mirror*mesh_scale} ${mesh_scale} ${mesh_scale}" />
+                    </xacro:if>
+                    <xacro:unless value="${mesh_filename != ''}">
+                        <box size="${h} ${w} ${l}" />
+                    </xacro:unless>
+                </geometry>
+                <origin xyz="0 0 ${-l/2}" rpy="0 0 0" />
+                <material name="${mat}" />
+            </visual>
+            <inertial>
+                <origin xyz="0 0 ${-l/2}" rpy="0 0 0" />
+                <mass value="${m}" />
+                <inertia
+                    ixx="${m / 12.0 * (w*w + l*l)}"
+                    ixy="0.0" ixz="0.0"
+                    iyy="${m / 12.0 * (h*h + l*l)}"
+                    iyz="0.0"
+                    izz="${m / 12.0 * (h*h + w*w)}" />
+            </inertial>
+        </link>
+    </xacro:macro>
+
+
+    <xacro:macro name="create_link3"
+        params="name m l w h o_x o_y o_z o_r o_p o_yaw mat mesh_filename mirror">
+        <link name="${name}">
+            <collision>
+                <origin xyz="0 0 ${-l/2}" rpy="0 0 0" />
+                <geometry>
+                    <box size="${h} ${w} ${l*0.6}" />
+                </geometry>
+
+            </collision>
+            <visual>
+                <!-- <xacro:if value="${use_mesh}">
+                    <mesh_filename="" />
+                </xacro:if> -->
+                <!-- <xacro:property name="o_rpy_parts" value="split(o_rpy)" />
+                <xacro:property name="o_yaw" value="${(o_rpy_parts[2])}" /> -->
+
+                <xacro:if value="${mesh_filename != ''}">
+                    <!-- <origin xyz="0 0 0" rpy="0 0 ${-PI}" /> -->
+                    <!-- <origin xyz="${-h} ${-w/2} ${-l}" rpy="${PI/2} 0 ${PI/2 + float(o_yaw)}" /> -->
+                    <origin xyz="${o_x} ${o_y} ${o_z}" rpy="${PI/2} 0 ${PI/2 + o_yaw}" />
+                </xacro:if>
+                <xacro:unless value="${mesh_filename != ''}">
+                    <origin xyz="0 0 ${-l/2}" rpy="0 0 ${-PI}" />
+                </xacro:unless>
+                <geometry>
+                    <xacro:if value="${mesh_filename != ''}">
+                        <mesh filename="${mesh_filename}"
+                            scale="${mirror*mesh_scale} ${mesh_scale} ${mesh_scale}" />
+                    </xacro:if>
+                    <xacro:unless value="${mesh_filename != ''}">
+                        <box size="${h} ${w} ${l}" />
+                    </xacro:unless>
+                </geometry>
+                <origin xyz="0 0 ${-l/2}" rpy="0 0 0" />
+                <material name="${mat}" />
+            </visual>
+            <inertial>
+                <origin xyz="0 0 ${-l/2}" rpy="0 0 0" />
+                <mass value="${m}" />
+                <inertia
+                    ixx="${m / 12.0 * (w*w + l*l)}"
+                    ixy="0.0" ixz="0.0"
+                    iyy="${m / 12.0 * (h*h + l*l)}"
+                    iyz="0.0"
+                    izz="${m / 12.0 * (h*h + w*w)}" />
+            </inertial>
+        </link>
+    </xacro:macro>
+
+
+    <!-- ======================================================= -->
+    <!-- JOINTS                                                  -->
+    <!-- ======================================================= -->
+    <xacro:macro name="create_joint"
+        params="name parent child origin_x origin_y origin_z o_roll o_pitch o_yaw axis_x axis_y axis_z lower_limit upper_limit effort velocity">
+        <joint name="${name}" type="revolute">
+            <parent link="${parent}" />
+            <child link="${child}" />
+            <origin xyz="${origin_x} ${origin_y} ${origin_z}" rpy="${o_roll} ${o_pitch} ${o_yaw}" />
+            <axis xyz="${axis_x} ${axis_y} ${axis_z}" />
+            <limit lower="${lower_limit}" upper="${upper_limit}" effort="${effort}"
+                velocity="${velocity}" />
+        </joint>
+    </xacro:macro>
+
+    <xacro:macro name="create_joint2"
+        params="name parent child origin_x origin_y origin_z o_roll o_pitch o_yaw axis_x axis_y axis_z lower_limit upper_limit effort velocity">
+        <joint name="${name}" type="continuous">
+            <parent link="${parent}" />
+            <child link="${child}" />
+            <origin xyz="${origin_x} ${origin_y} ${origin_z}" rpy="${o_roll} ${o_pitch} ${o_yaw}" />
+            <axis xyz="${axis_x} ${axis_y} ${axis_z}" />
+        </joint>
+    </xacro:macro>
+
+    <!-- ======================================================= -->
+    <!-- TRANSMISSION                                            -->
+    <!-- ======================================================= -->
+    <xacro:macro name="create_transmission" params="joint_name">
+        <transmission name="${joint_name}_transmission">
+            <type>transmission_interface/SimpleTransmission</type>
+            <joint name="${joint_name}">
+                <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+            </joint>
+            <actuator name="${joint_name}_motor">
+                <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+                <mechanicalReduction>1</mechanicalReduction>
+            </actuator>
+        </transmission>
+    </xacro:macro>
+
+    <xacro:macro name="set_gazebo_material" params="link_name material">
+        <gazebo reference="${link_name}">
+            <material>${material}</material>
+        </gazebo>
+    </xacro:macro>
+
+    <xacro:macro name="define_gazebo_material" params="link_name r g b a mu">
+        <gazebo reference="${link_name}">
+            <mu1>${mu}</mu1>
+            <mu2>${mu}</mu2>
+            <self_collide>0</self_collide>
+            <material>Gazebo/White</material>
+            <visual>
+                <material>
+                    <ambient>${r} ${g} ${b} ${a}</ambient>
+                    <diffuse>${r} ${g} ${b} ${a}</diffuse>
+                    <specular>0.1 0.1 0.1 1</specular>
+                    <emissive>0 0 0 0</emissive>
+                </material>
+            </visual>
+
+            <!-- <collision>
+                <surface>
+                    <friction>
+                        <ode>
+                            <mu1>2</mu1>
+                            <mu2>2</mu2>
+                            <kp value="1000000.0" />
+                            <kd value="1000.0" />
+                        </ode>
+                    </friction>
+                </surface>
+
+            </collision> -->
+        </gazebo>
+    </xacro:macro>
+
+    <xacro:macro name="add_imu_sensor" params="link_name joint_name">
+        <gazebo reference="${link_name}">
+            <sensor type="imu" name="${link_name}_imu_sensor">
+                <pose>0 0 0 0 0 0</pose>
+                <always_on>true</always_on>
+                <update_rate>50</update_rate>
+                <imu>
+                    <angular_velocity>
+                        <x>0.0</x>
+                        <y>0.0</y>
+                        <z>0.0</z>
+                    </angular_velocity>
+                    <linear_acceleration>
+                        <x>0.0</x>
+                        <y>0.0</y>
+                        <z>0.0</z>
+                    </linear_acceleration>
+                </imu>
+                <plugin name="imu" filename="libgazebo_ros_imu_sensor.so">
+                    <ros>
+                        <!-- Output topic name -->
+                        <namespace>${joint_name}</namespace>
+                        <argument>imu/out:=imu</argument>
+                    </ros>
+                    <!-- Frame ID for the IMU data -->
+                    <frameName>${link_name}</frameName>
+                </plugin>
+            </sensor>
+        </gazebo>
+    </xacro:macro>
+
+
+</robot>
