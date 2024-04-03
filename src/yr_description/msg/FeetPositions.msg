@@ -1,0 +1,2 @@
+geometry_msgs/Point left_foot
+geometry_msgs/Point right_foot

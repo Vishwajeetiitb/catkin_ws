@@ -1,9 +1,4 @@
-exo:
-  
-  joint_state_controller:
-    type: joint_state_controller/JointStateController
-    publish_rate: 100
-    
+exo:  
   yr_l_pel_joint_trajectory_controller:
     type: effort_controllers/JointTrajectoryController
     joints:

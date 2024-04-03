@@ -67,14 +67,14 @@ set(yr_description_CONFIG_INCLUDED TRUE)
 
 # set variables for source/devel/install prefixes
 if("FALSE" STREQUAL "TRUE")
-  set(yr_description_SOURCE_PREFIX /home/user/catkin_ws/src/yr_description)
-  set(yr_description_DEVEL_PREFIX /home/user/catkin_ws/devel)
+  set(yr_description_SOURCE_PREFIX /home/vishwajeet/catkin_ws/src/yr_description)
+  set(yr_description_DEVEL_PREFIX /home/vishwajeet/catkin_ws/devel)
   set(yr_description_INSTALL_PREFIX "")
   set(yr_description_PREFIX ${yr_description_DEVEL_PREFIX})
 else()
   set(yr_description_SOURCE_PREFIX "")
   set(yr_description_DEVEL_PREFIX "")
-  set(yr_description_INSTALL_PREFIX /home/user/catkin_ws/install)
+  set(yr_description_INSTALL_PREFIX /home/vishwajeet/catkin_ws/install)
   set(yr_description_PREFIX ${yr_description_INSTALL_PREFIX})
 endif()
 
@@ -91,9 +91,9 @@ endif()
 # flag project as catkin-based to distinguish if a find_package()-ed project is a catkin project
 set(yr_description_FOUND_CATKIN_PROJECT TRUE)
 
-if(NOT " " STREQUAL " ")
+if(NOT "include " STREQUAL " ")
   set(yr_description_INCLUDE_DIRS "")
-  set(_include_dirs "")
+  set(_include_dirs "include")
   if(NOT " " STREQUAL " ")
     set(_report "Check the issue tracker '' and consider creating a ticket if the problem has not been reported yet.")
   elseif(NOT " " STREQUAL " ")
@@ -116,7 +116,7 @@ if(NOT " " STREQUAL " ")
   endforeach()
 endif()
 
-set(libraries "")
+set(libraries "yr_description")
 foreach(library ${libraries})
   # keep build configuration keywords, target names and absolute libraries as-is
   if("${library}" MATCHES "^(debug|optimized|general)$")
@@ -154,7 +154,7 @@ foreach(library ${libraries})
     set(lib_path "")
     set(lib "${library}-NOTFOUND")
     # since the path where the library is found is returned we have to iterate over the paths manually
-    foreach(path /home/user/catkin_ws/install/lib;/home/user/catkin_ws/devel/lib;/home/user/simulation_ws/devel/lib;/home/simulations/public_sim_ws/devel/lib;/opt/ros/noetic/lib)
+    foreach(path /home/vishwajeet/catkin_ws/install/lib;/home/vishwajeet/catkin_ws/devel/lib;/home/vishwajeet/hector_ws/devel/lib;/opt/ros/noetic/lib)
       find_library(lib ${library}
         PATHS ${path}
         NO_DEFAULT_PATH NO_CMAKE_FIND_ROOT_PATH)
@@ -177,7 +177,7 @@ foreach(library ${libraries})
   endif()
 endforeach()
 
-set(yr_description_EXPORTED_TARGETS "")
+set(yr_description_EXPORTED_TARGETS "yr_description_generate_messages_cpp;yr_description_generate_messages_eus;yr_description_generate_messages_lisp;yr_description_generate_messages_nodejs;yr_description_generate_messages_py")
 # create dummy targets for exported code generation targets to make life of users easier
 foreach(t ${yr_description_EXPORTED_TARGETS})
   if(NOT TARGET ${t})
@@ -185,7 +185,7 @@ foreach(t ${yr_description_EXPORTED_TARGETS})
   endif()
 endforeach()
 
-set(depends "")
+set(depends "message_runtime")
 foreach(depend ${depends})
   string(REPLACE " " ";" depend_list ${depend})
   # the package name of the dependency must be kept in a unique variable so that it is not overwritten in recursive calls
@@ -214,7 +214,7 @@ foreach(depend ${depends})
   _list_append_deduplicate(yr_description_EXPORTED_TARGETS ${${yr_description_dep}_EXPORTED_TARGETS})
 endforeach()
 
-set(pkg_cfg_extras "")
+set(pkg_cfg_extras "yr_description-msg-extras.cmake")
 foreach(extra ${pkg_cfg_extras})
   if(NOT IS_ABSOLUTE ${extra})
     set(extra ${yr_description_DIR}/${extra})

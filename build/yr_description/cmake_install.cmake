@@ -1,8 +1,8 @@
-# Install script for directory: /home/user/catkin_ws/src/yr_description
+# Install script for directory: /home/vishwajeet/catkin_ws/src/yr_description
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
-  set(CMAKE_INSTALL_PREFIX "/home/user/catkin_ws/install")
+  set(CMAKE_INSTALL_PREFIX "/home/vishwajeet/catkin_ws/install")
 endif()
 string(REGEX REPLACE "/$" "" CMAKE_INSTALL_PREFIX "${CMAKE_INSTALL_PREFIX}")
 
@@ -38,17 +38,53 @@ if(NOT DEFINED CMAKE_CROSSCOMPILING)
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/pkgconfig" TYPE FILE FILES "/home/user/catkin_ws/build/yr_description/catkin_generated/installspace/yr_description.pc")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/yr_description/msg" TYPE FILE FILES "/home/vishwajeet/catkin_ws/src/yr_description/msg/FeetPositions.msg")
+endif()
+
+if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/yr_description/cmake" TYPE FILE FILES "/home/vishwajeet/catkin_ws/build/yr_description/catkin_generated/installspace/yr_description-msg-paths.cmake")
+endif()
+
+if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/include" TYPE DIRECTORY FILES "/home/vishwajeet/catkin_ws/devel/include/yr_description")
+endif()
+
+if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/roseus/ros" TYPE DIRECTORY FILES "/home/vishwajeet/catkin_ws/devel/share/roseus/ros/yr_description")
+endif()
+
+if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/common-lisp/ros" TYPE DIRECTORY FILES "/home/vishwajeet/catkin_ws/devel/share/common-lisp/ros/yr_description")
+endif()
+
+if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/gennodejs/ros" TYPE DIRECTORY FILES "/home/vishwajeet/catkin_ws/devel/share/gennodejs/ros/yr_description")
+endif()
+
+if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
+  execute_process(COMMAND "/usr/bin/python3" -m compileall "/home/vishwajeet/catkin_ws/devel/lib/python3/dist-packages/yr_description")
+endif()
+
+if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/python3/dist-packages" TYPE DIRECTORY FILES "/home/vishwajeet/catkin_ws/devel/lib/python3/dist-packages/yr_description")
+endif()
+
+if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/pkgconfig" TYPE FILE FILES "/home/vishwajeet/catkin_ws/build/yr_description/catkin_generated/installspace/yr_description.pc")
+endif()
+
+if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/yr_description/cmake" TYPE FILE FILES "/home/vishwajeet/catkin_ws/build/yr_description/catkin_generated/installspace/yr_description-msg-extras.cmake")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
   file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/yr_description/cmake" TYPE FILE FILES
-    "/home/user/catkin_ws/build/yr_description/catkin_generated/installspace/yr_descriptionConfig.cmake"
-    "/home/user/catkin_ws/build/yr_description/catkin_generated/installspace/yr_descriptionConfig-version.cmake"
+    "/home/vishwajeet/catkin_ws/build/yr_description/catkin_generated/installspace/yr_descriptionConfig.cmake"
+    "/home/vishwajeet/catkin_ws/build/yr_description/catkin_generated/installspace/yr_descriptionConfig-version.cmake"
     )
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/yr_description" TYPE FILE FILES "/home/user/catkin_ws/src/yr_description/package.xml")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/yr_description" TYPE FILE FILES "/home/vishwajeet/catkin_ws/src/yr_description/package.xml")
 endif()
 

@@ -1,0 +1,8 @@
+prefix=/home/vishwajeet/catkin_ws/install
+
+Name: stairs_detection
+Description: Description of stairs_detection
+Version: 0.0.0
+Cflags: -I${prefix}/include
+Libs: -L${prefix}/lib 
+Requires: roscpp sensor_msgs image_transport std_msgs cv_bridge pcl_msgs pcl_conversions pcl_ros tf tf_conversions geometry_msgs message_runtime
