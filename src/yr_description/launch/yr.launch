@@ -8,7 +8,7 @@
   <arg name="debug" default="true"/>
 
   <include file="$(find gazebo_ros)/launch/empty_world.launch">
-<!--    <arg name="world_name" value="$(find yr_description)/worlds/exo_world_final.world"/> -->
+   <!-- <arg name="world_name" value="$(find yr_description)/worlds/exo_world_final.world"/> -->
     <arg name="paused" value="false"/>
     <arg name="use_sim_time" value="true"/>
     <arg name="gui" value="true"/>
@@ -24,6 +24,7 @@
   <include file="$(find yr_description)/launch/torque_controller.launch" />
   <node name="set_initial_joint_states" pkg="yr_description" type="set_initial_joint_states.py" output="screen" />
   <node name="forward_kinematics" pkg="yr_description" type="forward_kinematics.py" output="screen" />
+  <node name="compute_jacbobian" pkg="yr_description" type="compute_jacobian.py" output="screen" />
 
   
   <!-- <include file="$(find yr_description)/launch/trajectory_controller.launch" /> -->

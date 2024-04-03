@@ -1,10 +1,12 @@
 #!/usr/bin/env python3
-
 import rospy
 from sensor_msgs.msg import JointState
 from urdf_parser_py.urdf import URDF
 from kdl_parser_py.urdf import treeFromUrdfModel
 from PyKDL import ChainJntToJacSolver, JntArray
+from yr_description.msg import AllJacobians, JacobianMatrix
+import PyKDL
+
 
 class ExoskeletonJacobianCalculator:
     def __init__(self):
@@ -38,33 +40,47 @@ class ExoskeletonJacobianCalculator:
             self.jac_solvers[link_name] = ChainJntToJacSolver(self.chains[link_name])
         
         # Subscribe to the joint states topic
-        rospy.Subscriber("joint_states", JointState, self.joint_states_callback)
+        rospy.Subscriber("/exo/joint_states", JointState, self.joint_states_callback)
+        self.jacobian_publisher = rospy.Publisher('/exo/all_jacobians', AllJacobians, queue_size=10)
+
 
     def joint_states_callback(self, msg):
+        # First, create a dictionary mapping joint names to their positions
+        joint_name_to_position = {name: position for name, position in zip(msg.name, msg.position)}
+        
         # Update the joint positions for each chain
-        for name, position in zip(msg.name, msg.position):
-            # Update joint positions for all chains where this joint is part of the chain
-            for link_name, chain in self.chains.items():
-                try:
-                    index = self.robot.joint_map[name].index
-                    if index < chain.getNrOfJoints():
-                        self.jnt_positions[link_name][index] = position
-                except KeyError:
-                    continue
-
-        # Compute and print the Jacobian for each chain
         for link_name in self.end_effectors.keys():
-            self.compute_and_print_jacobian(link_name)
+            chain = self.chains[link_name]
+            joint_positions = self.jnt_positions[link_name]
+            
+            # Iterate through each joint in the chain
+            for i in range(chain.getNrOfJoints()):
+                joint_name = chain.getSegment(i).getJoint().getName()
+                if joint_name in joint_name_to_position:
+                    # Update the joint position in the JntArray
+                    joint_positions[i] = joint_name_to_position[joint_name]
 
-    def compute_and_print_jacobian(self, link_name):
+        all_jacobians_msg = AllJacobians()
+        all_jacobians_msg.names = list(self.end_effectors.keys())  # Assuming you want to keep the same order
+
+        for link_name in self.end_effectors.keys():
+            jacobian = self.compute_jacobian(link_name)
+            flattened_jacobian = [jacobian[i, j] for i in range(jacobian.rows()) for j in range(jacobian.columns())]
+            
+            jacobian_matrix_msg = JacobianMatrix()
+            jacobian_matrix_msg.data = flattened_jacobian
+            jacobian_matrix_msg.rows = jacobian.rows()
+            jacobian_matrix_msg.columns = jacobian.columns()
+            all_jacobians_msg.jacobians.append(jacobian_matrix_msg)
+
+        # Publish the aggregated Jacobians
+        self.jacobian_publisher.publish(all_jacobians_msg)
+
+    def compute_jacobian(self, link_name):
         jacobian = PyKDL.Jacobian(self.chains[link_name].getNrOfJoints())
         self.jac_solvers[link_name].JntToJac(self.jnt_positions[link_name], jacobian)
-        print(f"Jacobian for {link_name}:")
-        for i in range(jacobian.rows()):
-            for j in range(jacobian.columns()):
-                print(f"{jacobian[i, j]:.4f}", end=' ')
-            print()
-        print("\n")
+        return jacobian
+
 
 if __name__ == "__main__":
     rospy.init_node('exoskeleton_jacobian_calculator')

@@ -1,0 +1,10 @@
+controller_list:
+  - name: right_leg_v1_controller
+    action_ns: follow_joint_trajectory
+    type: FollowJointTrajectory
+    default: True
+    joints:
+      - yr_r_pel_joint
+      - yr_r_hip_joint
+      - yr_r_kne_joint
+      - yr_r_ank_joint

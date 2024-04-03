@@ -1,0 +1,13 @@
+controller_list:
+  - name: fake_right_leg_v1_controller
+    type: $(arg fake_execution_type)
+    joints:
+      - yr_r_pel_joint
+      - yr_r_hip_joint
+      - yr_r_kne_joint
+      - yr_r_ank_joint
+initial:  # Define initial robot poses per group
+#  - group: right_leg_v1
+#    pose: home
+
+  []

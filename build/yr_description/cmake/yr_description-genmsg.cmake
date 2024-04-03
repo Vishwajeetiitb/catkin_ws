@@ -1,6 +1,6 @@
 # generated from genmsg/cmake/pkg-genmsg.cmake.em
 
-message(STATUS "yr_description: 1 messages, 0 services")
+message(STATUS "yr_description: 3 messages, 0 services")
 
 set(MSG_I_FLAGS "-Iyr_description:/home/vishwajeet/catkin_ws/src/yr_description/msg;-Istd_msgs:/opt/ros/noetic/share/std_msgs/cmake/../msg;-Igeometry_msgs:/opt/ros/noetic/share/geometry_msgs/cmake/../msg")
 
@@ -22,6 +22,16 @@ add_custom_target(_yr_description_generate_messages_check_deps_${_filename}
   COMMAND ${CATKIN_ENV} ${PYTHON_EXECUTABLE} ${GENMSG_CHECK_DEPS_SCRIPT} "yr_description" "/home/vishwajeet/catkin_ws/src/yr_description/msg/FeetPositions.msg" "geometry_msgs/Point"
 )
 
+get_filename_component(_filename "/home/vishwajeet/catkin_ws/src/yr_description/msg/JacobianMatrix.msg" NAME_WE)
+add_custom_target(_yr_description_generate_messages_check_deps_${_filename}
+  COMMAND ${CATKIN_ENV} ${PYTHON_EXECUTABLE} ${GENMSG_CHECK_DEPS_SCRIPT} "yr_description" "/home/vishwajeet/catkin_ws/src/yr_description/msg/JacobianMatrix.msg" ""
+)
+
+get_filename_component(_filename "/home/vishwajeet/catkin_ws/src/yr_description/msg/AllJacobians.msg" NAME_WE)
+add_custom_target(_yr_description_generate_messages_check_deps_${_filename}
+  COMMAND ${CATKIN_ENV} ${PYTHON_EXECUTABLE} ${GENMSG_CHECK_DEPS_SCRIPT} "yr_description" "/home/vishwajeet/catkin_ws/src/yr_description/msg/AllJacobians.msg" "yr_description/JacobianMatrix"
+)
+
 #
 #  langs = gencpp;geneus;genlisp;gennodejs;genpy
 #
@@ -32,6 +42,18 @@ _generate_msg_cpp(yr_description
   "/home/vishwajeet/catkin_ws/src/yr_description/msg/FeetPositions.msg"
   "${MSG_I_FLAGS}"
   "/opt/ros/noetic/share/geometry_msgs/cmake/../msg/Point.msg"
+  ${CATKIN_DEVEL_PREFIX}/${gencpp_INSTALL_DIR}/yr_description
+)
+_generate_msg_cpp(yr_description
+  "/home/vishwajeet/catkin_ws/src/yr_description/msg/JacobianMatrix.msg"
+  "${MSG_I_FLAGS}"
+  ""
+  ${CATKIN_DEVEL_PREFIX}/${gencpp_INSTALL_DIR}/yr_description
+)
+_generate_msg_cpp(yr_description
+  "/home/vishwajeet/catkin_ws/src/yr_description/msg/AllJacobians.msg"
+  "${MSG_I_FLAGS}"
+  "/home/vishwajeet/catkin_ws/src/yr_description/msg/JacobianMatrix.msg"
   ${CATKIN_DEVEL_PREFIX}/${gencpp_INSTALL_DIR}/yr_description
 )
 
@@ -51,6 +73,10 @@ add_dependencies(yr_description_generate_messages yr_description_generate_messag
 # add dependencies to all check dependencies targets
 get_filename_component(_filename "/home/vishwajeet/catkin_ws/src/yr_description/msg/FeetPositions.msg" NAME_WE)
 add_dependencies(yr_description_generate_messages_cpp _yr_description_generate_messages_check_deps_${_filename})
+get_filename_component(_filename "/home/vishwajeet/catkin_ws/src/yr_description/msg/JacobianMatrix.msg" NAME_WE)
+add_dependencies(yr_description_generate_messages_cpp _yr_description_generate_messages_check_deps_${_filename})
+get_filename_component(_filename "/home/vishwajeet/catkin_ws/src/yr_description/msg/AllJacobians.msg" NAME_WE)
+add_dependencies(yr_description_generate_messages_cpp _yr_description_generate_messages_check_deps_${_filename})
 
 # target for backward compatibility
 add_custom_target(yr_description_gencpp)
@@ -65,6 +91,18 @@ _generate_msg_eus(yr_description
   "/home/vishwajeet/catkin_ws/src/yr_description/msg/FeetPositions.msg"
   "${MSG_I_FLAGS}"
   "/opt/ros/noetic/share/geometry_msgs/cmake/../msg/Point.msg"
+  ${CATKIN_DEVEL_PREFIX}/${geneus_INSTALL_DIR}/yr_description
+)
+_generate_msg_eus(yr_description
+  "/home/vishwajeet/catkin_ws/src/yr_description/msg/JacobianMatrix.msg"
+  "${MSG_I_FLAGS}"
+  ""
+  ${CATKIN_DEVEL_PREFIX}/${geneus_INSTALL_DIR}/yr_description
+)
+_generate_msg_eus(yr_description
+  "/home/vishwajeet/catkin_ws/src/yr_description/msg/AllJacobians.msg"
+  "${MSG_I_FLAGS}"
+  "/home/vishwajeet/catkin_ws/src/yr_description/msg/JacobianMatrix.msg"
   ${CATKIN_DEVEL_PREFIX}/${geneus_INSTALL_DIR}/yr_description
 )
 
@@ -84,6 +122,10 @@ add_dependencies(yr_description_generate_messages yr_description_generate_messag
 # add dependencies to all check dependencies targets
 get_filename_component(_filename "/home/vishwajeet/catkin_ws/src/yr_description/msg/FeetPositions.msg" NAME_WE)
 add_dependencies(yr_description_generate_messages_eus _yr_description_generate_messages_check_deps_${_filename})
+get_filename_component(_filename "/home/vishwajeet/catkin_ws/src/yr_description/msg/JacobianMatrix.msg" NAME_WE)
+add_dependencies(yr_description_generate_messages_eus _yr_description_generate_messages_check_deps_${_filename})
+get_filename_component(_filename "/home/vishwajeet/catkin_ws/src/yr_description/msg/AllJacobians.msg" NAME_WE)
+add_dependencies(yr_description_generate_messages_eus _yr_description_generate_messages_check_deps_${_filename})
 
 # target for backward compatibility
 add_custom_target(yr_description_geneus)
@@ -98,6 +140,18 @@ _generate_msg_lisp(yr_description
   "/home/vishwajeet/catkin_ws/src/yr_description/msg/FeetPositions.msg"
   "${MSG_I_FLAGS}"
   "/opt/ros/noetic/share/geometry_msgs/cmake/../msg/Point.msg"
+  ${CATKIN_DEVEL_PREFIX}/${genlisp_INSTALL_DIR}/yr_description
+)
+_generate_msg_lisp(yr_description
+  "/home/vishwajeet/catkin_ws/src/yr_description/msg/JacobianMatrix.msg"
+  "${MSG_I_FLAGS}"
+  ""
+  ${CATKIN_DEVEL_PREFIX}/${genlisp_INSTALL_DIR}/yr_description
+)
+_generate_msg_lisp(yr_description
+  "/home/vishwajeet/catkin_ws/src/yr_description/msg/AllJacobians.msg"
+  "${MSG_I_FLAGS}"
+  "/home/vishwajeet/catkin_ws/src/yr_description/msg/JacobianMatrix.msg"
   ${CATKIN_DEVEL_PREFIX}/${genlisp_INSTALL_DIR}/yr_description
 )
 
@@ -117,6 +171,10 @@ add_dependencies(yr_description_generate_messages yr_description_generate_messag
 # add dependencies to all check dependencies targets
 get_filename_component(_filename "/home/vishwajeet/catkin_ws/src/yr_description/msg/FeetPositions.msg" NAME_WE)
 add_dependencies(yr_description_generate_messages_lisp _yr_description_generate_messages_check_deps_${_filename})
+get_filename_component(_filename "/home/vishwajeet/catkin_ws/src/yr_description/msg/JacobianMatrix.msg" NAME_WE)
+add_dependencies(yr_description_generate_messages_lisp _yr_description_generate_messages_check_deps_${_filename})
+get_filename_component(_filename "/home/vishwajeet/catkin_ws/src/yr_description/msg/AllJacobians.msg" NAME_WE)
+add_dependencies(yr_description_generate_messages_lisp _yr_description_generate_messages_check_deps_${_filename})
 
 # target for backward compatibility
 add_custom_target(yr_description_genlisp)
@@ -131,6 +189,18 @@ _generate_msg_nodejs(yr_description
   "/home/vishwajeet/catkin_ws/src/yr_description/msg/FeetPositions.msg"
   "${MSG_I_FLAGS}"
   "/opt/ros/noetic/share/geometry_msgs/cmake/../msg/Point.msg"
+  ${CATKIN_DEVEL_PREFIX}/${gennodejs_INSTALL_DIR}/yr_description
+)
+_generate_msg_nodejs(yr_description
+  "/home/vishwajeet/catkin_ws/src/yr_description/msg/JacobianMatrix.msg"
+  "${MSG_I_FLAGS}"
+  ""
+  ${CATKIN_DEVEL_PREFIX}/${gennodejs_INSTALL_DIR}/yr_description
+)
+_generate_msg_nodejs(yr_description
+  "/home/vishwajeet/catkin_ws/src/yr_description/msg/AllJacobians.msg"
+  "${MSG_I_FLAGS}"
+  "/home/vishwajeet/catkin_ws/src/yr_description/msg/JacobianMatrix.msg"
   ${CATKIN_DEVEL_PREFIX}/${gennodejs_INSTALL_DIR}/yr_description
 )
 
@@ -150,6 +220,10 @@ add_dependencies(yr_description_generate_messages yr_description_generate_messag
 # add dependencies to all check dependencies targets
 get_filename_component(_filename "/home/vishwajeet/catkin_ws/src/yr_description/msg/FeetPositions.msg" NAME_WE)
 add_dependencies(yr_description_generate_messages_nodejs _yr_description_generate_messages_check_deps_${_filename})
+get_filename_component(_filename "/home/vishwajeet/catkin_ws/src/yr_description/msg/JacobianMatrix.msg" NAME_WE)
+add_dependencies(yr_description_generate_messages_nodejs _yr_description_generate_messages_check_deps_${_filename})
+get_filename_component(_filename "/home/vishwajeet/catkin_ws/src/yr_description/msg/AllJacobians.msg" NAME_WE)
+add_dependencies(yr_description_generate_messages_nodejs _yr_description_generate_messages_check_deps_${_filename})
 
 # target for backward compatibility
 add_custom_target(yr_description_gennodejs)
@@ -164,6 +238,18 @@ _generate_msg_py(yr_description
   "/home/vishwajeet/catkin_ws/src/yr_description/msg/FeetPositions.msg"
   "${MSG_I_FLAGS}"
   "/opt/ros/noetic/share/geometry_msgs/cmake/../msg/Point.msg"
+  ${CATKIN_DEVEL_PREFIX}/${genpy_INSTALL_DIR}/yr_description
+)
+_generate_msg_py(yr_description
+  "/home/vishwajeet/catkin_ws/src/yr_description/msg/JacobianMatrix.msg"
+  "${MSG_I_FLAGS}"
+  ""
+  ${CATKIN_DEVEL_PREFIX}/${genpy_INSTALL_DIR}/yr_description
+)
+_generate_msg_py(yr_description
+  "/home/vishwajeet/catkin_ws/src/yr_description/msg/AllJacobians.msg"
+  "${MSG_I_FLAGS}"
+  "/home/vishwajeet/catkin_ws/src/yr_description/msg/JacobianMatrix.msg"
   ${CATKIN_DEVEL_PREFIX}/${genpy_INSTALL_DIR}/yr_description
 )
 
@@ -182,6 +268,10 @@ add_dependencies(yr_description_generate_messages yr_description_generate_messag
 
 # add dependencies to all check dependencies targets
 get_filename_component(_filename "/home/vishwajeet/catkin_ws/src/yr_description/msg/FeetPositions.msg" NAME_WE)
+add_dependencies(yr_description_generate_messages_py _yr_description_generate_messages_check_deps_${_filename})
+get_filename_component(_filename "/home/vishwajeet/catkin_ws/src/yr_description/msg/JacobianMatrix.msg" NAME_WE)
+add_dependencies(yr_description_generate_messages_py _yr_description_generate_messages_check_deps_${_filename})
+get_filename_component(_filename "/home/vishwajeet/catkin_ws/src/yr_description/msg/AllJacobians.msg" NAME_WE)
 add_dependencies(yr_description_generate_messages_py _yr_description_generate_messages_check_deps_${_filename})
 
 # target for backward compatibility

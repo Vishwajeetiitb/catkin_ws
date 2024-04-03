@@ -1,5 +1,7 @@
 file(REMOVE_RECURSE
+  "/home/vishwajeet/catkin_ws/devel/lib/python3/dist-packages/yr_description/msg/_AllJacobians.py"
   "/home/vishwajeet/catkin_ws/devel/lib/python3/dist-packages/yr_description/msg/_FeetPositions.py"
+  "/home/vishwajeet/catkin_ws/devel/lib/python3/dist-packages/yr_description/msg/_JacobianMatrix.py"
   "/home/vishwajeet/catkin_ws/devel/lib/python3/dist-packages/yr_description/msg/__init__.py"
   "CMakeFiles/yr_description_generate_messages_py"
 )

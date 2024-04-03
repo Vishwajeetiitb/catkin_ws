@@ -1,0 +1,11 @@
+moveit_setup_assistant_config:
+  URDF:
+    package: yr_description
+    relative_path: urdf/exo.xacro
+    xacro_args: ""
+  SRDF:
+    relative_path: config/exo.srdf
+  CONFIG:
+    author_name: vishwajeet
+    author_email: vishwajeet724728@gmail.com
+    generated_timestamp: 1712182765

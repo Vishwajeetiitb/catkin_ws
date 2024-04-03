@@ -1,5 +1,7 @@
 file(REMOVE_RECURSE
+  "/home/vishwajeet/catkin_ws/devel/include/yr_description/AllJacobians.h"
   "/home/vishwajeet/catkin_ws/devel/include/yr_description/FeetPositions.h"
+  "/home/vishwajeet/catkin_ws/devel/include/yr_description/JacobianMatrix.h"
   "CMakeFiles/yr_description_generate_messages_cpp"
 )
 

@@ -1,6 +1,6 @@
 # generated from genmsg/cmake/pkg-genmsg.context.in
 
-messages_str = "/home/vishwajeet/catkin_ws/src/yr_description/msg/FeetPositions.msg"
+messages_str = "/home/vishwajeet/catkin_ws/src/yr_description/msg/FeetPositions.msg;/home/vishwajeet/catkin_ws/src/yr_description/msg/JacobianMatrix.msg;/home/vishwajeet/catkin_ws/src/yr_description/msg/AllJacobians.msg"
 services_str = ""
 pkg_name = "yr_description"
 dependencies_str = "std_msgs;geometry_msgs"

@@ -10,7 +10,15 @@ from sensor_msgs.msg import Imu
 from gazebo_msgs.msg import ModelStates
 import tf.transformations
 from yr_description.msg import FeetPositions 
+import numpy as np
+from yr_description.msg import AllJacobians
+
 encoder_values = {}
+model_euler_angles = {} #roll pitch yaw is the sequence formate 
+left_foot_pose = {}
+right_foot_pose = {}
+jacobians_dict = {}
+
 # Initialize a dictionary to hold the IMU data for each joint
 measurements = {
     'yr_l_ank_joint': {},
@@ -104,12 +112,32 @@ def model_eulers_callback(data):
             orientation_q.w
         )
         euler = tf.transformations.euler_from_quaternion(quaternion)
-        rospy.loginfo("Euler angles of 'exo': roll: {:.2f}, pitch: {:.2f}, yaw: {:.2f}".format(euler[0], euler[1], euler[2]))
+        model_euler_angles['roll'] = euler[0]
+        model_euler_angles['pitch'] = euler[1]
+        model_euler_angles['yaw'] = euler[2]
+        # rospy.loginfo("Euler angles of 'exo': roll: {:.2f}, pitch: {:.2f}, yaw: {:.2f}".format(euler[0], euler[1], euler[2]))
     except ValueError:
         rospy.logerr("Model 'exo' not found in the model states.")
 
 def feet_pos_callback(data):
-    rospy.loginfo("Left foot position: %s, Right foot position: %s", data.left_foot, data.right_foot)
+    global left_foot_pose, right_foot_pose
+    left_foot_pose['x'] = data.left_foot.x
+    left_foot_pose['y'] = data.left_foot.y
+    left_foot_pose['z'] = data.left_foot.z
+
+    right_foot_pose['x'] = data.right_foot.x
+    right_foot_pose['y'] = data.right_foot.y
+    right_foot_pose['z'] = data.right_foot.z
+    # rospy.loginfo("Left foot position: %s, Right foot position: %s", data.left_foot, data.right_foot)
+
+def all_jacobians_callback(data):
+    global jacobians_dict
+    jacobians_dict.clear()
+    for name, jacobian_matrix_msg in zip(data.names, data.jacobians):
+        jacobian_np = np.array(jacobian_matrix_msg.data).reshape(jacobian_matrix_msg.rows, jacobian_matrix_msg.columns)
+        jacobians_dict[name] = jacobian_np
+    # print("Updated Jacobians Dictionary")
+
 
 def setup_subscribers():
     # Set up the IMU subscribers for each joint.
@@ -125,7 +153,9 @@ def setup_subscribers():
 
     #Set up the Euler Feet positions subscriber
     rospy.Subscriber("/exo/feet_positions", FeetPositions, feet_pos_callback)
-
+    
+    #Set up jacobians subscriber
+    rospy.Subscriber('/exo/all_jacobians', AllJacobians, all_jacobians_callback)
 
 
 if __name__ == "__main__":
@@ -144,6 +174,11 @@ if __name__ == "__main__":
     wanted_angles[5] = -wanted_angles[5]
     # manager.set_angles({'yr_l_pel_joint': wanted_angles[0], 'yr_l_hip_joint': wanted_angles[1],'yr_l_kne_joint': wanted_angles[2], 'yr_l_ank_joint': wanted_angles[3],'yr_r_pel_joint': wanted_angles[4], 'yr_r_hip_joint': wanted_angles[5],'yr_r_kne_joint': wanted_angles[6], 'yr_r_ank_joint': wanted_angles[7]})
     print('ended')
+    rospy.sleep(2)
+    print(model_euler_angles)
+    print(left_foot_pose)
+    print(right_foot_pose)
+    print(jacobians_dict)
 
 
     # Example usage for initial robot angle positions (it won't stand up if already fallen, these are just angle positions at which it stands)

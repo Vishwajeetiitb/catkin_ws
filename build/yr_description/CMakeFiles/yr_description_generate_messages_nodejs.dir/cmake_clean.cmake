@@ -1,5 +1,7 @@
 file(REMOVE_RECURSE
+  "/home/vishwajeet/catkin_ws/devel/share/gennodejs/ros/yr_description/msg/AllJacobians.js"
   "/home/vishwajeet/catkin_ws/devel/share/gennodejs/ros/yr_description/msg/FeetPositions.js"
+  "/home/vishwajeet/catkin_ws/devel/share/gennodejs/ros/yr_description/msg/JacobianMatrix.js"
   "CMakeFiles/yr_description_generate_messages_nodejs"
 )
 

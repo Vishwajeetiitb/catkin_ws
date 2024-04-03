@@ -1,0 +1,8 @@
+prefix=/home/vishwajeet/catkin_ws/devel
+
+Name: yr_moveit
+Description: Description of yr_moveit
+Version: 0.3.0
+Cflags: 
+Libs: -L${prefix}/lib 
+Requires: 

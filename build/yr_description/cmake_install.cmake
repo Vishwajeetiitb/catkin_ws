@@ -38,7 +38,11 @@ if(NOT DEFINED CMAKE_CROSSCOMPILING)
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/yr_description/msg" TYPE FILE FILES "/home/vishwajeet/catkin_ws/src/yr_description/msg/FeetPositions.msg")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/yr_description/msg" TYPE FILE FILES
+    "/home/vishwajeet/catkin_ws/src/yr_description/msg/FeetPositions.msg"
+    "/home/vishwajeet/catkin_ws/src/yr_description/msg/JacobianMatrix.msg"
+    "/home/vishwajeet/catkin_ws/src/yr_description/msg/AllJacobians.msg"
+    )
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)

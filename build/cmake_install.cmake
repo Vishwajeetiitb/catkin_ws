@@ -132,7 +132,10 @@ if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for each subdirectory.
   include("/home/vishwajeet/catkin_ws/build/gtest/cmake_install.cmake")
   include("/home/vishwajeet/catkin_ws/build/realsense2_description/cmake_install.cmake")
+  include("/home/vishwajeet/catkin_ws/build/kdl_parser/kdl_parser_py/cmake_install.cmake")
+  include("/home/vishwajeet/catkin_ws/build/kdl_parser/kdl_parser/cmake_install.cmake")
   include("/home/vishwajeet/catkin_ws/build/yr_description/cmake_install.cmake")
+  include("/home/vishwajeet/catkin_ws/build/yr_moveit/cmake_install.cmake")
 
 endif()
 

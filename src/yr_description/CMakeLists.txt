@@ -54,6 +54,8 @@ find_package(catkin REQUIRED COMPONENTS
     add_message_files(
     FILES
     FeetPositions.msg
+    JacobianMatrix.msg
+    AllJacobians.msg
     )
 
 ## Generate services in the 'srv' folder

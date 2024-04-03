@@ -1,2 +1,2 @@
-realsense2_description:yr_description
+kdl_parser/kdl_parser:kdl_parser/kdl_parser_py:realsense2_description:yr_description:yr_moveit
 -DCATKIN_DEVEL_PREFIX=/home/vishwajeet/catkin_ws/devel -DCMAKE_INSTALL_PREFIX=/home/vishwajeet/catkin_ws/install -G Unix Makefiles
