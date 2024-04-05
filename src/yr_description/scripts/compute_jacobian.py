@@ -2,9 +2,9 @@
 import rospy
 from sensor_msgs.msg import JointState
 from urdf_parser_py.urdf import URDF
-from kdl_parser_py.urdf import treeFromUrdfModel
+from kdl_parser_py.urdf import treeFromUrdfModel # type: ignore
 from PyKDL import ChainJntToJacSolver, JntArray
-from yr_description.msg import AllJacobians, JacobianMatrix
+from yr_description.msg import AllJacobians, JacobianMatrix # type: ignore
 import PyKDL
 
 
@@ -22,10 +22,12 @@ class ExoskeletonJacobianCalculator:
             "l_thigh": "l_thigh_link",
             "l_shank": "l_shank_link",
             "l_foot": "l_foot_link",
+            "l_foot_bottom":"l_foot_bottom_link",
             "r_pel": "r_pel_link",
             "r_thigh": "r_thigh_link",
             "r_shank": "r_shank_link",
-            "r_foot": "r_foot_link"
+            "r_foot": "r_foot_link",
+            "r_foot_bottom":"r_foot_bottom_link"
         }
         
         # Initialize a dictionary to hold the chains, joint positions, and solvers for each link
@@ -44,7 +46,7 @@ class ExoskeletonJacobianCalculator:
         self.jacobian_publisher = rospy.Publisher('/exo/all_jacobians', AllJacobians, queue_size=10)
 
 
-    def joint_states_callback(self, msg):
+    def joint_states_callback(self, msg):   
         # First, create a dictionary mapping joint names to their positions
         joint_name_to_position = {name: position for name, position in zip(msg.name, msg.position)}
         

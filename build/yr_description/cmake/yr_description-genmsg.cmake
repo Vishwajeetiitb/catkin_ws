@@ -1,6 +1,6 @@
 # generated from genmsg/cmake/pkg-genmsg.cmake.em
 
-message(STATUS "yr_description: 3 messages, 0 services")
+message(STATUS "yr_description: 3 messages, 4 services")
 
 set(MSG_I_FLAGS "-Iyr_description:/home/vishwajeet/catkin_ws/src/yr_description/msg;-Istd_msgs:/opt/ros/noetic/share/std_msgs/cmake/../msg;-Igeometry_msgs:/opt/ros/noetic/share/geometry_msgs/cmake/../msg")
 
@@ -32,6 +32,26 @@ add_custom_target(_yr_description_generate_messages_check_deps_${_filename}
   COMMAND ${CATKIN_ENV} ${PYTHON_EXECUTABLE} ${GENMSG_CHECK_DEPS_SCRIPT} "yr_description" "/home/vishwajeet/catkin_ws/src/yr_description/msg/AllJacobians.msg" "yr_description/JacobianMatrix"
 )
 
+get_filename_component(_filename "/home/vishwajeet/catkin_ws/src/yr_description/srv/ComputeLeftFootPosition.srv" NAME_WE)
+add_custom_target(_yr_description_generate_messages_check_deps_${_filename}
+  COMMAND ${CATKIN_ENV} ${PYTHON_EXECUTABLE} ${GENMSG_CHECK_DEPS_SCRIPT} "yr_description" "/home/vishwajeet/catkin_ws/src/yr_description/srv/ComputeLeftFootPosition.srv" "geometry_msgs/Point"
+)
+
+get_filename_component(_filename "/home/vishwajeet/catkin_ws/src/yr_description/srv/ComputeRightFootPosition.srv" NAME_WE)
+add_custom_target(_yr_description_generate_messages_check_deps_${_filename}
+  COMMAND ${CATKIN_ENV} ${PYTHON_EXECUTABLE} ${GENMSG_CHECK_DEPS_SCRIPT} "yr_description" "/home/vishwajeet/catkin_ws/src/yr_description/srv/ComputeRightFootPosition.srv" "geometry_msgs/Point"
+)
+
+get_filename_component(_filename "/home/vishwajeet/catkin_ws/src/yr_description/srv/IKLeft.srv" NAME_WE)
+add_custom_target(_yr_description_generate_messages_check_deps_${_filename}
+  COMMAND ${CATKIN_ENV} ${PYTHON_EXECUTABLE} ${GENMSG_CHECK_DEPS_SCRIPT} "yr_description" "/home/vishwajeet/catkin_ws/src/yr_description/srv/IKLeft.srv" ""
+)
+
+get_filename_component(_filename "/home/vishwajeet/catkin_ws/src/yr_description/srv/IKRight.srv" NAME_WE)
+add_custom_target(_yr_description_generate_messages_check_deps_${_filename}
+  COMMAND ${CATKIN_ENV} ${PYTHON_EXECUTABLE} ${GENMSG_CHECK_DEPS_SCRIPT} "yr_description" "/home/vishwajeet/catkin_ws/src/yr_description/srv/IKRight.srv" ""
+)
+
 #
 #  langs = gencpp;geneus;genlisp;gennodejs;genpy
 #
@@ -58,6 +78,30 @@ _generate_msg_cpp(yr_description
 )
 
 ### Generating Services
+_generate_srv_cpp(yr_description
+  "/home/vishwajeet/catkin_ws/src/yr_description/srv/ComputeLeftFootPosition.srv"
+  "${MSG_I_FLAGS}"
+  "/opt/ros/noetic/share/geometry_msgs/cmake/../msg/Point.msg"
+  ${CATKIN_DEVEL_PREFIX}/${gencpp_INSTALL_DIR}/yr_description
+)
+_generate_srv_cpp(yr_description
+  "/home/vishwajeet/catkin_ws/src/yr_description/srv/ComputeRightFootPosition.srv"
+  "${MSG_I_FLAGS}"
+  "/opt/ros/noetic/share/geometry_msgs/cmake/../msg/Point.msg"
+  ${CATKIN_DEVEL_PREFIX}/${gencpp_INSTALL_DIR}/yr_description
+)
+_generate_srv_cpp(yr_description
+  "/home/vishwajeet/catkin_ws/src/yr_description/srv/IKLeft.srv"
+  "${MSG_I_FLAGS}"
+  ""
+  ${CATKIN_DEVEL_PREFIX}/${gencpp_INSTALL_DIR}/yr_description
+)
+_generate_srv_cpp(yr_description
+  "/home/vishwajeet/catkin_ws/src/yr_description/srv/IKRight.srv"
+  "${MSG_I_FLAGS}"
+  ""
+  ${CATKIN_DEVEL_PREFIX}/${gencpp_INSTALL_DIR}/yr_description
+)
 
 ### Generating Module File
 _generate_module_cpp(yr_description
@@ -76,6 +120,14 @@ add_dependencies(yr_description_generate_messages_cpp _yr_description_generate_m
 get_filename_component(_filename "/home/vishwajeet/catkin_ws/src/yr_description/msg/JacobianMatrix.msg" NAME_WE)
 add_dependencies(yr_description_generate_messages_cpp _yr_description_generate_messages_check_deps_${_filename})
 get_filename_component(_filename "/home/vishwajeet/catkin_ws/src/yr_description/msg/AllJacobians.msg" NAME_WE)
+add_dependencies(yr_description_generate_messages_cpp _yr_description_generate_messages_check_deps_${_filename})
+get_filename_component(_filename "/home/vishwajeet/catkin_ws/src/yr_description/srv/ComputeLeftFootPosition.srv" NAME_WE)
+add_dependencies(yr_description_generate_messages_cpp _yr_description_generate_messages_check_deps_${_filename})
+get_filename_component(_filename "/home/vishwajeet/catkin_ws/src/yr_description/srv/ComputeRightFootPosition.srv" NAME_WE)
+add_dependencies(yr_description_generate_messages_cpp _yr_description_generate_messages_check_deps_${_filename})
+get_filename_component(_filename "/home/vishwajeet/catkin_ws/src/yr_description/srv/IKLeft.srv" NAME_WE)
+add_dependencies(yr_description_generate_messages_cpp _yr_description_generate_messages_check_deps_${_filename})
+get_filename_component(_filename "/home/vishwajeet/catkin_ws/src/yr_description/srv/IKRight.srv" NAME_WE)
 add_dependencies(yr_description_generate_messages_cpp _yr_description_generate_messages_check_deps_${_filename})
 
 # target for backward compatibility
@@ -107,6 +159,30 @@ _generate_msg_eus(yr_description
 )
 
 ### Generating Services
+_generate_srv_eus(yr_description
+  "/home/vishwajeet/catkin_ws/src/yr_description/srv/ComputeLeftFootPosition.srv"
+  "${MSG_I_FLAGS}"
+  "/opt/ros/noetic/share/geometry_msgs/cmake/../msg/Point.msg"
+  ${CATKIN_DEVEL_PREFIX}/${geneus_INSTALL_DIR}/yr_description
+)
+_generate_srv_eus(yr_description
+  "/home/vishwajeet/catkin_ws/src/yr_description/srv/ComputeRightFootPosition.srv"
+  "${MSG_I_FLAGS}"
+  "/opt/ros/noetic/share/geometry_msgs/cmake/../msg/Point.msg"
+  ${CATKIN_DEVEL_PREFIX}/${geneus_INSTALL_DIR}/yr_description
+)
+_generate_srv_eus(yr_description
+  "/home/vishwajeet/catkin_ws/src/yr_description/srv/IKLeft.srv"
+  "${MSG_I_FLAGS}"
+  ""
+  ${CATKIN_DEVEL_PREFIX}/${geneus_INSTALL_DIR}/yr_description
+)
+_generate_srv_eus(yr_description
+  "/home/vishwajeet/catkin_ws/src/yr_description/srv/IKRight.srv"
+  "${MSG_I_FLAGS}"
+  ""
+  ${CATKIN_DEVEL_PREFIX}/${geneus_INSTALL_DIR}/yr_description
+)
 
 ### Generating Module File
 _generate_module_eus(yr_description
@@ -125,6 +201,14 @@ add_dependencies(yr_description_generate_messages_eus _yr_description_generate_m
 get_filename_component(_filename "/home/vishwajeet/catkin_ws/src/yr_description/msg/JacobianMatrix.msg" NAME_WE)
 add_dependencies(yr_description_generate_messages_eus _yr_description_generate_messages_check_deps_${_filename})
 get_filename_component(_filename "/home/vishwajeet/catkin_ws/src/yr_description/msg/AllJacobians.msg" NAME_WE)
+add_dependencies(yr_description_generate_messages_eus _yr_description_generate_messages_check_deps_${_filename})
+get_filename_component(_filename "/home/vishwajeet/catkin_ws/src/yr_description/srv/ComputeLeftFootPosition.srv" NAME_WE)
+add_dependencies(yr_description_generate_messages_eus _yr_description_generate_messages_check_deps_${_filename})
+get_filename_component(_filename "/home/vishwajeet/catkin_ws/src/yr_description/srv/ComputeRightFootPosition.srv" NAME_WE)
+add_dependencies(yr_description_generate_messages_eus _yr_description_generate_messages_check_deps_${_filename})
+get_filename_component(_filename "/home/vishwajeet/catkin_ws/src/yr_description/srv/IKLeft.srv" NAME_WE)
+add_dependencies(yr_description_generate_messages_eus _yr_description_generate_messages_check_deps_${_filename})
+get_filename_component(_filename "/home/vishwajeet/catkin_ws/src/yr_description/srv/IKRight.srv" NAME_WE)
 add_dependencies(yr_description_generate_messages_eus _yr_description_generate_messages_check_deps_${_filename})
 
 # target for backward compatibility
@@ -156,6 +240,30 @@ _generate_msg_lisp(yr_description
 )
 
 ### Generating Services
+_generate_srv_lisp(yr_description
+  "/home/vishwajeet/catkin_ws/src/yr_description/srv/ComputeLeftFootPosition.srv"
+  "${MSG_I_FLAGS}"
+  "/opt/ros/noetic/share/geometry_msgs/cmake/../msg/Point.msg"
+  ${CATKIN_DEVEL_PREFIX}/${genlisp_INSTALL_DIR}/yr_description
+)
+_generate_srv_lisp(yr_description
+  "/home/vishwajeet/catkin_ws/src/yr_description/srv/ComputeRightFootPosition.srv"
+  "${MSG_I_FLAGS}"
+  "/opt/ros/noetic/share/geometry_msgs/cmake/../msg/Point.msg"
+  ${CATKIN_DEVEL_PREFIX}/${genlisp_INSTALL_DIR}/yr_description
+)
+_generate_srv_lisp(yr_description
+  "/home/vishwajeet/catkin_ws/src/yr_description/srv/IKLeft.srv"
+  "${MSG_I_FLAGS}"
+  ""
+  ${CATKIN_DEVEL_PREFIX}/${genlisp_INSTALL_DIR}/yr_description
+)
+_generate_srv_lisp(yr_description
+  "/home/vishwajeet/catkin_ws/src/yr_description/srv/IKRight.srv"
+  "${MSG_I_FLAGS}"
+  ""
+  ${CATKIN_DEVEL_PREFIX}/${genlisp_INSTALL_DIR}/yr_description
+)
 
 ### Generating Module File
 _generate_module_lisp(yr_description
@@ -174,6 +282,14 @@ add_dependencies(yr_description_generate_messages_lisp _yr_description_generate_
 get_filename_component(_filename "/home/vishwajeet/catkin_ws/src/yr_description/msg/JacobianMatrix.msg" NAME_WE)
 add_dependencies(yr_description_generate_messages_lisp _yr_description_generate_messages_check_deps_${_filename})
 get_filename_component(_filename "/home/vishwajeet/catkin_ws/src/yr_description/msg/AllJacobians.msg" NAME_WE)
+add_dependencies(yr_description_generate_messages_lisp _yr_description_generate_messages_check_deps_${_filename})
+get_filename_component(_filename "/home/vishwajeet/catkin_ws/src/yr_description/srv/ComputeLeftFootPosition.srv" NAME_WE)
+add_dependencies(yr_description_generate_messages_lisp _yr_description_generate_messages_check_deps_${_filename})
+get_filename_component(_filename "/home/vishwajeet/catkin_ws/src/yr_description/srv/ComputeRightFootPosition.srv" NAME_WE)
+add_dependencies(yr_description_generate_messages_lisp _yr_description_generate_messages_check_deps_${_filename})
+get_filename_component(_filename "/home/vishwajeet/catkin_ws/src/yr_description/srv/IKLeft.srv" NAME_WE)
+add_dependencies(yr_description_generate_messages_lisp _yr_description_generate_messages_check_deps_${_filename})
+get_filename_component(_filename "/home/vishwajeet/catkin_ws/src/yr_description/srv/IKRight.srv" NAME_WE)
 add_dependencies(yr_description_generate_messages_lisp _yr_description_generate_messages_check_deps_${_filename})
 
 # target for backward compatibility
@@ -205,6 +321,30 @@ _generate_msg_nodejs(yr_description
 )
 
 ### Generating Services
+_generate_srv_nodejs(yr_description
+  "/home/vishwajeet/catkin_ws/src/yr_description/srv/ComputeLeftFootPosition.srv"
+  "${MSG_I_FLAGS}"
+  "/opt/ros/noetic/share/geometry_msgs/cmake/../msg/Point.msg"
+  ${CATKIN_DEVEL_PREFIX}/${gennodejs_INSTALL_DIR}/yr_description
+)
+_generate_srv_nodejs(yr_description
+  "/home/vishwajeet/catkin_ws/src/yr_description/srv/ComputeRightFootPosition.srv"
+  "${MSG_I_FLAGS}"
+  "/opt/ros/noetic/share/geometry_msgs/cmake/../msg/Point.msg"
+  ${CATKIN_DEVEL_PREFIX}/${gennodejs_INSTALL_DIR}/yr_description
+)
+_generate_srv_nodejs(yr_description
+  "/home/vishwajeet/catkin_ws/src/yr_description/srv/IKLeft.srv"
+  "${MSG_I_FLAGS}"
+  ""
+  ${CATKIN_DEVEL_PREFIX}/${gennodejs_INSTALL_DIR}/yr_description
+)
+_generate_srv_nodejs(yr_description
+  "/home/vishwajeet/catkin_ws/src/yr_description/srv/IKRight.srv"
+  "${MSG_I_FLAGS}"
+  ""
+  ${CATKIN_DEVEL_PREFIX}/${gennodejs_INSTALL_DIR}/yr_description
+)
 
 ### Generating Module File
 _generate_module_nodejs(yr_description
@@ -223,6 +363,14 @@ add_dependencies(yr_description_generate_messages_nodejs _yr_description_generat
 get_filename_component(_filename "/home/vishwajeet/catkin_ws/src/yr_description/msg/JacobianMatrix.msg" NAME_WE)
 add_dependencies(yr_description_generate_messages_nodejs _yr_description_generate_messages_check_deps_${_filename})
 get_filename_component(_filename "/home/vishwajeet/catkin_ws/src/yr_description/msg/AllJacobians.msg" NAME_WE)
+add_dependencies(yr_description_generate_messages_nodejs _yr_description_generate_messages_check_deps_${_filename})
+get_filename_component(_filename "/home/vishwajeet/catkin_ws/src/yr_description/srv/ComputeLeftFootPosition.srv" NAME_WE)
+add_dependencies(yr_description_generate_messages_nodejs _yr_description_generate_messages_check_deps_${_filename})
+get_filename_component(_filename "/home/vishwajeet/catkin_ws/src/yr_description/srv/ComputeRightFootPosition.srv" NAME_WE)
+add_dependencies(yr_description_generate_messages_nodejs _yr_description_generate_messages_check_deps_${_filename})
+get_filename_component(_filename "/home/vishwajeet/catkin_ws/src/yr_description/srv/IKLeft.srv" NAME_WE)
+add_dependencies(yr_description_generate_messages_nodejs _yr_description_generate_messages_check_deps_${_filename})
+get_filename_component(_filename "/home/vishwajeet/catkin_ws/src/yr_description/srv/IKRight.srv" NAME_WE)
 add_dependencies(yr_description_generate_messages_nodejs _yr_description_generate_messages_check_deps_${_filename})
 
 # target for backward compatibility
@@ -254,6 +402,30 @@ _generate_msg_py(yr_description
 )
 
 ### Generating Services
+_generate_srv_py(yr_description
+  "/home/vishwajeet/catkin_ws/src/yr_description/srv/ComputeLeftFootPosition.srv"
+  "${MSG_I_FLAGS}"
+  "/opt/ros/noetic/share/geometry_msgs/cmake/../msg/Point.msg"
+  ${CATKIN_DEVEL_PREFIX}/${genpy_INSTALL_DIR}/yr_description
+)
+_generate_srv_py(yr_description
+  "/home/vishwajeet/catkin_ws/src/yr_description/srv/ComputeRightFootPosition.srv"
+  "${MSG_I_FLAGS}"
+  "/opt/ros/noetic/share/geometry_msgs/cmake/../msg/Point.msg"
+  ${CATKIN_DEVEL_PREFIX}/${genpy_INSTALL_DIR}/yr_description
+)
+_generate_srv_py(yr_description
+  "/home/vishwajeet/catkin_ws/src/yr_description/srv/IKLeft.srv"
+  "${MSG_I_FLAGS}"
+  ""
+  ${CATKIN_DEVEL_PREFIX}/${genpy_INSTALL_DIR}/yr_description
+)
+_generate_srv_py(yr_description
+  "/home/vishwajeet/catkin_ws/src/yr_description/srv/IKRight.srv"
+  "${MSG_I_FLAGS}"
+  ""
+  ${CATKIN_DEVEL_PREFIX}/${genpy_INSTALL_DIR}/yr_description
+)
 
 ### Generating Module File
 _generate_module_py(yr_description
@@ -272,6 +444,14 @@ add_dependencies(yr_description_generate_messages_py _yr_description_generate_me
 get_filename_component(_filename "/home/vishwajeet/catkin_ws/src/yr_description/msg/JacobianMatrix.msg" NAME_WE)
 add_dependencies(yr_description_generate_messages_py _yr_description_generate_messages_check_deps_${_filename})
 get_filename_component(_filename "/home/vishwajeet/catkin_ws/src/yr_description/msg/AllJacobians.msg" NAME_WE)
+add_dependencies(yr_description_generate_messages_py _yr_description_generate_messages_check_deps_${_filename})
+get_filename_component(_filename "/home/vishwajeet/catkin_ws/src/yr_description/srv/ComputeLeftFootPosition.srv" NAME_WE)
+add_dependencies(yr_description_generate_messages_py _yr_description_generate_messages_check_deps_${_filename})
+get_filename_component(_filename "/home/vishwajeet/catkin_ws/src/yr_description/srv/ComputeRightFootPosition.srv" NAME_WE)
+add_dependencies(yr_description_generate_messages_py _yr_description_generate_messages_check_deps_${_filename})
+get_filename_component(_filename "/home/vishwajeet/catkin_ws/src/yr_description/srv/IKLeft.srv" NAME_WE)
+add_dependencies(yr_description_generate_messages_py _yr_description_generate_messages_check_deps_${_filename})
+get_filename_component(_filename "/home/vishwajeet/catkin_ws/src/yr_description/srv/IKRight.srv" NAME_WE)
 add_dependencies(yr_description_generate_messages_py _yr_description_generate_messages_check_deps_${_filename})
 
 # target for backward compatibility

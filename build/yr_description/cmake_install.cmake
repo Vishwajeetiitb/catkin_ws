@@ -46,6 +46,15 @@ if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/yr_description/srv" TYPE FILE FILES
+    "/home/vishwajeet/catkin_ws/src/yr_description/srv/ComputeLeftFootPosition.srv"
+    "/home/vishwajeet/catkin_ws/src/yr_description/srv/ComputeRightFootPosition.srv"
+    "/home/vishwajeet/catkin_ws/src/yr_description/srv/IKLeft.srv"
+    "/home/vishwajeet/catkin_ws/src/yr_description/srv/IKRight.srv"
+    )
+endif()
+
+if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
   file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/yr_description/cmake" TYPE FILE FILES "/home/vishwajeet/catkin_ws/build/yr_description/catkin_generated/installspace/yr_description-msg-paths.cmake")
 endif()
 

@@ -1,7 +1,7 @@
 # generated from genmsg/cmake/pkg-genmsg.context.in
 
 messages_str = "/home/vishwajeet/catkin_ws/src/yr_description/msg/FeetPositions.msg;/home/vishwajeet/catkin_ws/src/yr_description/msg/JacobianMatrix.msg;/home/vishwajeet/catkin_ws/src/yr_description/msg/AllJacobians.msg"
-services_str = ""
+services_str = "/home/vishwajeet/catkin_ws/src/yr_description/srv/ComputeLeftFootPosition.srv;/home/vishwajeet/catkin_ws/src/yr_description/srv/ComputeRightFootPosition.srv;/home/vishwajeet/catkin_ws/src/yr_description/srv/IKLeft.srv;/home/vishwajeet/catkin_ws/src/yr_description/srv/IKRight.srv"
 pkg_name = "yr_description"
 dependencies_str = "std_msgs;geometry_msgs"
 langs = "gencpp;geneus;genlisp;gennodejs;genpy"

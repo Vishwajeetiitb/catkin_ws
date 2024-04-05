@@ -56,7 +56,12 @@ include yr_description/CMakeFiles/yr_description_generate_messages_py.dir/progre
 yr_description/CMakeFiles/yr_description_generate_messages_py: /home/vishwajeet/catkin_ws/devel/lib/python3/dist-packages/yr_description/msg/_FeetPositions.py
 yr_description/CMakeFiles/yr_description_generate_messages_py: /home/vishwajeet/catkin_ws/devel/lib/python3/dist-packages/yr_description/msg/_JacobianMatrix.py
 yr_description/CMakeFiles/yr_description_generate_messages_py: /home/vishwajeet/catkin_ws/devel/lib/python3/dist-packages/yr_description/msg/_AllJacobians.py
+yr_description/CMakeFiles/yr_description_generate_messages_py: /home/vishwajeet/catkin_ws/devel/lib/python3/dist-packages/yr_description/srv/_ComputeLeftFootPosition.py
+yr_description/CMakeFiles/yr_description_generate_messages_py: /home/vishwajeet/catkin_ws/devel/lib/python3/dist-packages/yr_description/srv/_ComputeRightFootPosition.py
+yr_description/CMakeFiles/yr_description_generate_messages_py: /home/vishwajeet/catkin_ws/devel/lib/python3/dist-packages/yr_description/srv/_IKLeft.py
+yr_description/CMakeFiles/yr_description_generate_messages_py: /home/vishwajeet/catkin_ws/devel/lib/python3/dist-packages/yr_description/srv/_IKRight.py
 yr_description/CMakeFiles/yr_description_generate_messages_py: /home/vishwajeet/catkin_ws/devel/lib/python3/dist-packages/yr_description/msg/__init__.py
+yr_description/CMakeFiles/yr_description_generate_messages_py: /home/vishwajeet/catkin_ws/devel/lib/python3/dist-packages/yr_description/srv/__init__.py
 
 
 /home/vishwajeet/catkin_ws/devel/lib/python3/dist-packages/yr_description/msg/_FeetPositions.py: /opt/ros/noetic/lib/genpy/genmsg_py.py
@@ -76,18 +81,60 @@ yr_description/CMakeFiles/yr_description_generate_messages_py: /home/vishwajeet/
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/vishwajeet/catkin_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Generating Python from MSG yr_description/AllJacobians"
 	cd /home/vishwajeet/catkin_ws/build/yr_description && ../catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/genpy/cmake/../../../lib/genpy/genmsg_py.py /home/vishwajeet/catkin_ws/src/yr_description/msg/AllJacobians.msg -Iyr_description:/home/vishwajeet/catkin_ws/src/yr_description/msg -Istd_msgs:/opt/ros/noetic/share/std_msgs/cmake/../msg -Igeometry_msgs:/opt/ros/noetic/share/geometry_msgs/cmake/../msg -p yr_description -o /home/vishwajeet/catkin_ws/devel/lib/python3/dist-packages/yr_description/msg
 
+/home/vishwajeet/catkin_ws/devel/lib/python3/dist-packages/yr_description/srv/_ComputeLeftFootPosition.py: /opt/ros/noetic/lib/genpy/gensrv_py.py
+/home/vishwajeet/catkin_ws/devel/lib/python3/dist-packages/yr_description/srv/_ComputeLeftFootPosition.py: /home/vishwajeet/catkin_ws/src/yr_description/srv/ComputeLeftFootPosition.srv
+/home/vishwajeet/catkin_ws/devel/lib/python3/dist-packages/yr_description/srv/_ComputeLeftFootPosition.py: /opt/ros/noetic/share/geometry_msgs/msg/Point.msg
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/vishwajeet/catkin_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Generating Python code from SRV yr_description/ComputeLeftFootPosition"
+	cd /home/vishwajeet/catkin_ws/build/yr_description && ../catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/genpy/cmake/../../../lib/genpy/gensrv_py.py /home/vishwajeet/catkin_ws/src/yr_description/srv/ComputeLeftFootPosition.srv -Iyr_description:/home/vishwajeet/catkin_ws/src/yr_description/msg -Istd_msgs:/opt/ros/noetic/share/std_msgs/cmake/../msg -Igeometry_msgs:/opt/ros/noetic/share/geometry_msgs/cmake/../msg -p yr_description -o /home/vishwajeet/catkin_ws/devel/lib/python3/dist-packages/yr_description/srv
+
+/home/vishwajeet/catkin_ws/devel/lib/python3/dist-packages/yr_description/srv/_ComputeRightFootPosition.py: /opt/ros/noetic/lib/genpy/gensrv_py.py
+/home/vishwajeet/catkin_ws/devel/lib/python3/dist-packages/yr_description/srv/_ComputeRightFootPosition.py: /home/vishwajeet/catkin_ws/src/yr_description/srv/ComputeRightFootPosition.srv
+/home/vishwajeet/catkin_ws/devel/lib/python3/dist-packages/yr_description/srv/_ComputeRightFootPosition.py: /opt/ros/noetic/share/geometry_msgs/msg/Point.msg
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/vishwajeet/catkin_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Generating Python code from SRV yr_description/ComputeRightFootPosition"
+	cd /home/vishwajeet/catkin_ws/build/yr_description && ../catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/genpy/cmake/../../../lib/genpy/gensrv_py.py /home/vishwajeet/catkin_ws/src/yr_description/srv/ComputeRightFootPosition.srv -Iyr_description:/home/vishwajeet/catkin_ws/src/yr_description/msg -Istd_msgs:/opt/ros/noetic/share/std_msgs/cmake/../msg -Igeometry_msgs:/opt/ros/noetic/share/geometry_msgs/cmake/../msg -p yr_description -o /home/vishwajeet/catkin_ws/devel/lib/python3/dist-packages/yr_description/srv
+
+/home/vishwajeet/catkin_ws/devel/lib/python3/dist-packages/yr_description/srv/_IKLeft.py: /opt/ros/noetic/lib/genpy/gensrv_py.py
+/home/vishwajeet/catkin_ws/devel/lib/python3/dist-packages/yr_description/srv/_IKLeft.py: /home/vishwajeet/catkin_ws/src/yr_description/srv/IKLeft.srv
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/vishwajeet/catkin_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Generating Python code from SRV yr_description/IKLeft"
+	cd /home/vishwajeet/catkin_ws/build/yr_description && ../catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/genpy/cmake/../../../lib/genpy/gensrv_py.py /home/vishwajeet/catkin_ws/src/yr_description/srv/IKLeft.srv -Iyr_description:/home/vishwajeet/catkin_ws/src/yr_description/msg -Istd_msgs:/opt/ros/noetic/share/std_msgs/cmake/../msg -Igeometry_msgs:/opt/ros/noetic/share/geometry_msgs/cmake/../msg -p yr_description -o /home/vishwajeet/catkin_ws/devel/lib/python3/dist-packages/yr_description/srv
+
+/home/vishwajeet/catkin_ws/devel/lib/python3/dist-packages/yr_description/srv/_IKRight.py: /opt/ros/noetic/lib/genpy/gensrv_py.py
+/home/vishwajeet/catkin_ws/devel/lib/python3/dist-packages/yr_description/srv/_IKRight.py: /home/vishwajeet/catkin_ws/src/yr_description/srv/IKRight.srv
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/vishwajeet/catkin_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Generating Python code from SRV yr_description/IKRight"
+	cd /home/vishwajeet/catkin_ws/build/yr_description && ../catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/genpy/cmake/../../../lib/genpy/gensrv_py.py /home/vishwajeet/catkin_ws/src/yr_description/srv/IKRight.srv -Iyr_description:/home/vishwajeet/catkin_ws/src/yr_description/msg -Istd_msgs:/opt/ros/noetic/share/std_msgs/cmake/../msg -Igeometry_msgs:/opt/ros/noetic/share/geometry_msgs/cmake/../msg -p yr_description -o /home/vishwajeet/catkin_ws/devel/lib/python3/dist-packages/yr_description/srv
+
 /home/vishwajeet/catkin_ws/devel/lib/python3/dist-packages/yr_description/msg/__init__.py: /opt/ros/noetic/lib/genpy/genmsg_py.py
 /home/vishwajeet/catkin_ws/devel/lib/python3/dist-packages/yr_description/msg/__init__.py: /home/vishwajeet/catkin_ws/devel/lib/python3/dist-packages/yr_description/msg/_FeetPositions.py
 /home/vishwajeet/catkin_ws/devel/lib/python3/dist-packages/yr_description/msg/__init__.py: /home/vishwajeet/catkin_ws/devel/lib/python3/dist-packages/yr_description/msg/_JacobianMatrix.py
 /home/vishwajeet/catkin_ws/devel/lib/python3/dist-packages/yr_description/msg/__init__.py: /home/vishwajeet/catkin_ws/devel/lib/python3/dist-packages/yr_description/msg/_AllJacobians.py
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/vishwajeet/catkin_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Generating Python msg __init__.py for yr_description"
+/home/vishwajeet/catkin_ws/devel/lib/python3/dist-packages/yr_description/msg/__init__.py: /home/vishwajeet/catkin_ws/devel/lib/python3/dist-packages/yr_description/srv/_ComputeLeftFootPosition.py
+/home/vishwajeet/catkin_ws/devel/lib/python3/dist-packages/yr_description/msg/__init__.py: /home/vishwajeet/catkin_ws/devel/lib/python3/dist-packages/yr_description/srv/_ComputeRightFootPosition.py
+/home/vishwajeet/catkin_ws/devel/lib/python3/dist-packages/yr_description/msg/__init__.py: /home/vishwajeet/catkin_ws/devel/lib/python3/dist-packages/yr_description/srv/_IKLeft.py
+/home/vishwajeet/catkin_ws/devel/lib/python3/dist-packages/yr_description/msg/__init__.py: /home/vishwajeet/catkin_ws/devel/lib/python3/dist-packages/yr_description/srv/_IKRight.py
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/vishwajeet/catkin_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Generating Python msg __init__.py for yr_description"
 	cd /home/vishwajeet/catkin_ws/build/yr_description && ../catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/genpy/cmake/../../../lib/genpy/genmsg_py.py -o /home/vishwajeet/catkin_ws/devel/lib/python3/dist-packages/yr_description/msg --initpy
+
+/home/vishwajeet/catkin_ws/devel/lib/python3/dist-packages/yr_description/srv/__init__.py: /opt/ros/noetic/lib/genpy/genmsg_py.py
+/home/vishwajeet/catkin_ws/devel/lib/python3/dist-packages/yr_description/srv/__init__.py: /home/vishwajeet/catkin_ws/devel/lib/python3/dist-packages/yr_description/msg/_FeetPositions.py
+/home/vishwajeet/catkin_ws/devel/lib/python3/dist-packages/yr_description/srv/__init__.py: /home/vishwajeet/catkin_ws/devel/lib/python3/dist-packages/yr_description/msg/_JacobianMatrix.py
+/home/vishwajeet/catkin_ws/devel/lib/python3/dist-packages/yr_description/srv/__init__.py: /home/vishwajeet/catkin_ws/devel/lib/python3/dist-packages/yr_description/msg/_AllJacobians.py
+/home/vishwajeet/catkin_ws/devel/lib/python3/dist-packages/yr_description/srv/__init__.py: /home/vishwajeet/catkin_ws/devel/lib/python3/dist-packages/yr_description/srv/_ComputeLeftFootPosition.py
+/home/vishwajeet/catkin_ws/devel/lib/python3/dist-packages/yr_description/srv/__init__.py: /home/vishwajeet/catkin_ws/devel/lib/python3/dist-packages/yr_description/srv/_ComputeRightFootPosition.py
+/home/vishwajeet/catkin_ws/devel/lib/python3/dist-packages/yr_description/srv/__init__.py: /home/vishwajeet/catkin_ws/devel/lib/python3/dist-packages/yr_description/srv/_IKLeft.py
+/home/vishwajeet/catkin_ws/devel/lib/python3/dist-packages/yr_description/srv/__init__.py: /home/vishwajeet/catkin_ws/devel/lib/python3/dist-packages/yr_description/srv/_IKRight.py
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/vishwajeet/catkin_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Generating Python srv __init__.py for yr_description"
+	cd /home/vishwajeet/catkin_ws/build/yr_description && ../catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/genpy/cmake/../../../lib/genpy/genmsg_py.py -o /home/vishwajeet/catkin_ws/devel/lib/python3/dist-packages/yr_description/srv --initpy
 
 yr_description_generate_messages_py: yr_description/CMakeFiles/yr_description_generate_messages_py
 yr_description_generate_messages_py: /home/vishwajeet/catkin_ws/devel/lib/python3/dist-packages/yr_description/msg/_FeetPositions.py
 yr_description_generate_messages_py: /home/vishwajeet/catkin_ws/devel/lib/python3/dist-packages/yr_description/msg/_JacobianMatrix.py
 yr_description_generate_messages_py: /home/vishwajeet/catkin_ws/devel/lib/python3/dist-packages/yr_description/msg/_AllJacobians.py
+yr_description_generate_messages_py: /home/vishwajeet/catkin_ws/devel/lib/python3/dist-packages/yr_description/srv/_ComputeLeftFootPosition.py
+yr_description_generate_messages_py: /home/vishwajeet/catkin_ws/devel/lib/python3/dist-packages/yr_description/srv/_ComputeRightFootPosition.py
+yr_description_generate_messages_py: /home/vishwajeet/catkin_ws/devel/lib/python3/dist-packages/yr_description/srv/_IKLeft.py
+yr_description_generate_messages_py: /home/vishwajeet/catkin_ws/devel/lib/python3/dist-packages/yr_description/srv/_IKRight.py
 yr_description_generate_messages_py: /home/vishwajeet/catkin_ws/devel/lib/python3/dist-packages/yr_description/msg/__init__.py
+yr_description_generate_messages_py: /home/vishwajeet/catkin_ws/devel/lib/python3/dist-packages/yr_description/srv/__init__.py
 yr_description_generate_messages_py: yr_description/CMakeFiles/yr_description_generate_messages_py.dir/build.make
 
 .PHONY : yr_description_generate_messages_py

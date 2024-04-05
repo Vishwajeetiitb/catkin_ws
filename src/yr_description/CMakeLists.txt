@@ -65,6 +65,15 @@ find_package(catkin REQUIRED COMPONENTS
 #   Service2.srv
 # )
 
+add_service_files(
+  FILES
+  ComputeLeftFootPosition.srv
+  ComputeRightFootPosition.srv
+  IKLeft.srv
+  IKRight.srv
+)
+
+
 ## Generate actions in the 'action' folder
 # add_action_files(
 #   FILES

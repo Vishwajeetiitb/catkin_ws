@@ -12,13 +12,13 @@
 
 
 
-  <!-- <link name="world"/>
+  <link name="world"/>
 
     <joint name="pole_to_waist" type="fixed">
         <parent link="world" />
         <child link="waist_link" />
-        <origin xyz="0 0 1.5" />
-    </joint> -->
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+    </joint>
 
   <!-- 
   <link name="human_waist_link">
@@ -84,6 +84,37 @@
     </inertial>
   </link>
 
+  <link name="l_foot_bottom_link">
+    <!-- <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <box size="0.01 0.01 0.01" />
+      </geometry>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+    </collision> -->
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <box size="0.01 0.01 0.01" />
+      </geometry>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <material name="${foot_mat}" />
+    </visual>
+    <inertial>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <mass value="0.01" />
+      <inertia ixx="0.00001" ixy="0.0" ixz="0.0" iyy="0.00001" iyz="0.0" izz="0.00001" />
+    </inertial>
+  </link>
+
+  <joint name="l_foot_bottom_joint" type="fixed">
+    <parent link="l_foot_link" />
+    <child link="l_foot_bottom_link" />
+    <origin xyz="${foot_h/2} 0 ${-foot_h - foot_w/2}" rpy="0 0 0"/>
+  </joint>
+
+
+
 
 
   <xacro:create_link3 name="r_pel_link" m="${pel_m}" l="${pel_l}" w="${pel_w}" h="${pel_h}" o_x="${pel_x_offset}" o_y="${pel_y_offset}" o_z="${-pel_h_offset}" o_r="0" o_p="0" o_yaw="0" mat="${pel_mat}" mesh_filename="${pel_mesh}" mirror="1" />
@@ -116,6 +147,35 @@
       <inertia ixx="${foot_m / 12.0 * (foot_w*foot_w + foot_h*foot_h)}" ixy="0.0" ixz="0.0" iyy="${foot_m / 12.0 * (foot_l*foot_l + foot_h*foot_h)}" iyz="0.0" izz="${foot_m / 12.0 * (foot_l*foot_l + foot_w*foot_w)}" />
     </inertial>
   </link>
+
+  <link name="r_foot_bottom_link">
+    <!-- <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <box size="0.01 0.01 0.01" />
+      </geometry>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+    </collision> -->
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <box size="0.01 0.01 0.01" />
+      </geometry>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <material name="${foot_mat}" />
+    </visual>
+    <inertial>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <mass value="0.01" />
+      <inertia ixx="0.00001" ixy="0.0" ixz="0.0" iyy="0.00001" iyz="0.0" izz="0.00001" />
+    </inertial>
+  </link>
+
+  <joint name="r_foot_bottom_joint" type="fixed">
+    <parent link="r_foot_link" />
+    <child link="r_foot_bottom_link" />
+    <origin xyz="${foot_h/2} 0 ${-foot_h - foot_w/2}" rpy="0 0 0"/>
+  </joint>
 
   <!-- ======================================================= -->
   <!-- JOINTS                                                  -->

@@ -9,9 +9,12 @@ import time
 from sensor_msgs.msg import Imu
 from gazebo_msgs.msg import ModelStates
 import tf.transformations
-from yr_description.msg import FeetPositions 
+from yr_description.msg import FeetPositions  # type: ignore
 import numpy as np
-from yr_description.msg import AllJacobians
+from yr_description.msg import AllJacobians # type: ignore
+from geometry_msgs.msg import Point
+from yr_description.srv import ComputeLeftFootPosition, ComputeRightFootPosition # type: ignore
+from yr_description.srv import SolveIKLeftFoot, SolveIKRightFoot # type: ignore
 
 encoder_values = {}
 model_euler_angles = {} #roll pitch yaw is the sequence formate 
@@ -96,6 +99,44 @@ def imu_callback(data, joint_name):
     }
     # print('yr_l_ank_joint aZ',measurements['yr_l_ank_joint']['aZ'])
 
+def call_compute_left_foot_position(joint_angles):
+    rospy.wait_for_service('compute_left_foot_position')
+    try:
+        compute_left_foot_position = rospy.ServiceProxy('compute_left_foot_position', ComputeLeftFootPosition)
+        resp = compute_left_foot_position(joint_angles)
+        return resp.foot_position
+    except rospy.ServiceException as e:
+        print("Service call failed: %s" % e)
+
+def call_compute_right_foot_position(joint_angles):
+    rospy.wait_for_service('compute_right_foot_position')
+    try:
+        compute_right_foot_position = rospy.ServiceProxy('compute_right_foot_position', ComputeRightFootPosition)
+        resp = compute_right_foot_position(joint_angles)
+        return resp.foot_position
+    except rospy.ServiceException as e:
+        print("Service call failed: %s" % e)
+
+
+def call_solve_ik_left_foot(x, y, z, roll, pitch, yaw):
+    rospy.wait_for_service('solve_ik_left_foot')
+    try:
+        solve_ik = rospy.ServiceProxy('solve_ik_left_foot', SolveIKLeftFoot)
+        resp = solve_ik(x, y, z, roll, pitch, yaw)
+        return resp.joint_angles
+    except rospy.ServiceException as e:
+        print("Service call failed: %s" % e)
+
+def call_solve_ik_right_foot(x, y, z, roll, pitch, yaw):
+    rospy.wait_for_service('solve_ik_right_foot')
+    try:
+        solve_ik = rospy.ServiceProxy('solve_ik_right_foot', SolveIKRightFoot)
+        resp = solve_ik(x, y, z, roll, pitch, yaw)
+        return resp.joint_angles
+    except rospy.ServiceException as e:
+        print("Service call failed: %s" % e)
+
+
 def encoder_callback(msg):
     global encoder_values
     encoder_values = dict(zip(msg.name, msg.position))
@@ -119,16 +160,6 @@ def model_eulers_callback(data):
     except ValueError:
         rospy.logerr("Model 'exo' not found in the model states.")
 
-def feet_pos_callback(data):
-    global left_foot_pose, right_foot_pose
-    left_foot_pose['x'] = data.left_foot.x
-    left_foot_pose['y'] = data.left_foot.y
-    left_foot_pose['z'] = data.left_foot.z
-
-    right_foot_pose['x'] = data.right_foot.x
-    right_foot_pose['y'] = data.right_foot.y
-    right_foot_pose['z'] = data.right_foot.z
-    # rospy.loginfo("Left foot position: %s, Right foot position: %s", data.left_foot, data.right_foot)
 
 def all_jacobians_callback(data):
     global jacobians_dict
@@ -150,12 +181,12 @@ def setup_subscribers():
 
     #Set up the Euler angles subscriber
     rospy.Subscriber("/gazebo/model_states", ModelStates, model_eulers_callback)
-
-    #Set up the Euler Feet positions subscriber
-    rospy.Subscriber("/exo/feet_positions", FeetPositions, feet_pos_callback)
     
     #Set up jacobians subscriber
     rospy.Subscriber('/exo/all_jacobians', AllJacobians, all_jacobians_callback)
+
+
+
 
 
 if __name__ == "__main__":
@@ -184,8 +215,29 @@ if __name__ == "__main__":
     # Example usage for initial robot angle positions (it won't stand up if already fallen, these are just angle positions at which it stands)
     # print('starting')
     # PI = 3.14159265359
-    # manager.set_angles({'yr_l_pel_joint': 0.0, 'yr_l_hip_joint': -PI/4,'yr_l_kne_joint': PI/2, 'yr_l_ank_joint': -PI/4,'yr_r_pel_joint': 0.0, 'yr_r_hip_joint': -PI/4,'yr_r_kne_joint': PI/2, 'yr_r_ank_joint': -PI/4})
-    # print('ended')
+    manager.set_angles({'yr_l_pel_joint': -0.00023463788109292366, 'yr_l_hip_joint': -0.8396501900169805,'yr_l_kne_joint': 1.67926951839456, 'yr_l_ank_joint': -0.8395229808435698      ,'yr_r_pel_joint': 0.0, 'yr_r_hip_joint': -PI/4,'yr_r_kne_joint': PI/2, 'yr_r_ank_joint': -PI/4})
+    # print('ended')                                                                                                
+
+    left_leg_joint_angles = [0.0, -0.5, 1.0, -0.5]
+    right_leg_joint_angles = [0.0, -0.5, 0.5, -0.5]                                                                         
+
+    left_foot_position = call_compute_left_foot_position(left_leg_joint_angles)
+    print("Left Foot Position:", left_foot_position)
+
+    right_foot_position = call_compute_right_foot_position(right_leg_joint_angles)
+    print("Right Foot Position:", right_foot_position)
+
+
+    x, y, z = 0.1, 0.275, -0.7
+    roll, pitch, yaw = 0.0, 0.0, 0.0
+    left_foot_joint_angles = call_solve_ik_left_foot(x, y, z, roll, pitch, yaw)
+    print("Left Foot Joint Angles:", left_foot_joint_angles)
+
+    # Example target pose for the right foot
+    x, y, z = 0.1, -0.275, -0.7
+    roll, pitch, yaw = 0.0, 0.0, 0.0
+    right_foot_joint_angles = call_solve_ik_right_foot(x, y, z, roll, pitch, yaw)
+    print("Right Foot Joint Angles:", right_foot_joint_angles)
 
     #Sending torque commands only to pel and hip joint of right leg
     # manager.set_torques({'yr_l_pel_joint': -100.0, 'yr_l_hip_joint': 0.0})

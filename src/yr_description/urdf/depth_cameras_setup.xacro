@@ -27,7 +27,7 @@
 
 <joint name="d435_front_joint" type="fixed">
   <axis xyz="0 1 0" />
-  <origin xyz="${thigh_w/2} 0 ${-thigh_l/2}" rpy="0 0 0"/>
+  <origin xyz="${thigh_w/2} 0 ${-thigh_l/2}" rpy="0 ${0*PI/4} 0"/>
   <parent link="l_thigh_link"/>
   <child link="d435_front"/>
 </joint>

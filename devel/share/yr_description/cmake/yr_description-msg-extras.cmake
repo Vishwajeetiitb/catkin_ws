@@ -1,2 +1,2 @@
 set(yr_description_MESSAGE_FILES "/home/vishwajeet/catkin_ws/src/yr_description/msg/FeetPositions.msg;/home/vishwajeet/catkin_ws/src/yr_description/msg/JacobianMatrix.msg;/home/vishwajeet/catkin_ws/src/yr_description/msg/AllJacobians.msg")
-set(yr_description_SERVICE_FILES "")
+set(yr_description_SERVICE_FILES "/home/vishwajeet/catkin_ws/src/yr_description/srv/ComputeLeftFootPosition.srv;/home/vishwajeet/catkin_ws/src/yr_description/srv/ComputeRightFootPosition.srv;/home/vishwajeet/catkin_ws/src/yr_description/srv/IKLeft.srv;/home/vishwajeet/catkin_ws/src/yr_description/srv/IKRight.srv")
